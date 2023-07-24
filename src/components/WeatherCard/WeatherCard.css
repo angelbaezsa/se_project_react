@@ -1,0 +1,23 @@
+.weatherCard {
+  border-radius: 12px;
+  position: relative;
+  height: 80px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+.weather {
+  margin: 0;
+}
+
+.weathercard__info {
+  position: absolute;
+  margin-left: 15px;
+  font-size: 36px;
+}
+
+.weathercard__image {
+  width: 100%;
+}

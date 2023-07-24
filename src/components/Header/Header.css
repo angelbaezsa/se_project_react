@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+
+.header__button {
+  background-color: #00000000;
+  border: 0;
+}
