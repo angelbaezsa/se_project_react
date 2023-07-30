@@ -69,7 +69,7 @@ const weatherOptions = [
   },
 ];
 
-const WeatherCard = ({ day = true, type = "cloudy", temperature = 0 }) => {
+const WeatherCard = ({ day = true, type = "cloudy", temperature = "" }) => {
   const weatherOption = weatherOptions.filter((i) => {
     return i.type === type && i.day === day;
   });

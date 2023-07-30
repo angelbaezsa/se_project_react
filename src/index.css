@@ -6,12 +6,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   max-width: 1440px;
   margin: 0 auto 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .Main {
   box-sizing: border-box;
   max-width: 1440px;
   display: flex;
+  flex-direction: column;
 }
 
 code {

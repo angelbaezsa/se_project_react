@@ -1,0 +1,70 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.506);
+}
+
+.modal_content {
+  background-color: aliceblue;
+  box-sizing: border-box;
+  align-items: start;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 28px;
+  width: 496px;
+  height: 436px;
+}
+.form_close-button {
+  position: relative;
+  margin-left: auto;
+  background-image: url("../../images/close-button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: 0;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.form_close-button {
+}
+
+.form_title {
+  font-size: large;
+  margin-top: 0;
+}
+
+.form__input {
+  width: 440px;
+  border-top: hidden;
+  border-right: hidden;
+  border-left: hidden;
+  border-bottom: 3px solid white;
+  background-color: transparent;
+  margin-bottom: 24px;
+}
+
+.radio-button_label {
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.radio-button + label {
+  cursor: pointer;
+  color: gray;
+  border-color: gray;
+}
+
+.radio-button:checked + label {
+  color: #000000;
+  border-color: #000000;
+}

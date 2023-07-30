@@ -1,0 +1,19 @@
+.page__footer {
+  margin-top: auto;
+}
+.footer {
+  display: flex;
+  background-color: transparent;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__text_name {
+  margin: 0;
+}
+
+.footer__text_year {
+  margin: 0;
+}

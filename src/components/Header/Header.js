@@ -1,6 +1,6 @@
 import logo from "../../images/Logo.svg";
 import avatar from "../../images/Avatar img.svg";
-import css from "../Header/Header.css";
+import "../Header/Header.css";
 
 const dateFormatter = () => {
   const date = new Date();
@@ -13,7 +13,7 @@ const dateFormatter = () => {
   return date.toLocaleDateString("en-US", options);
 };
 
-function Header() {
+function Header({ onCreateModal }) {
   return (
     <header className="header">
       <div className="logo">
@@ -21,7 +21,7 @@ function Header() {
         <p>{dateFormatter()}</p>
       </div>
       <div className="avatar">
-        <button className="header__button" type="text">
+        <button className="header__button" type="text" onClick={onCreateModal}>
           + Add Clothes
         </button>
         <p>Terrence Tegegne</p>
