@@ -12,7 +12,7 @@ import { defaultClothingItems } from "../Utils/Constants";
 function App() {
   //this state handles the add item modal
   const [activeModal, setActiveModal] = useState("");
-  const [newCard, setNewCard] = useState({});
+  //this state handles the selected cards
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperature, setCurrentTemperature] = useState();
   const [currentCity, setCurrentCity] = useState();
