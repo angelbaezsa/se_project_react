@@ -1,24 +1,14 @@
 import logo from "../../images/Logo.svg";
 import avatar from "../../images/Avatar img.svg";
 import "../Header/Header.css";
+import { dateFormatter } from "../Utils/Constants";
 
-const dateFormatter = () => {
-  const date = new Date();
-  var options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  return date.toLocaleDateString("en-US", options);
-};
-
-function Header({ onCreateModal }) {
+function Header({ onCreateModal, city }) {
   return (
     <header className="header">
       <div className="logo">
         <img src={logo}></img>
-        <p>{dateFormatter()}</p>
+        <p>{`${dateFormatter()}, ${city}`}</p>
       </div>
       <div className="avatar">
         <button className="header__button" type="text" onClick={onCreateModal}>

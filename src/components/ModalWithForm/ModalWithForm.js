@@ -5,6 +5,7 @@ function ModalWithForm({
   children,
   buttonText = "Add Garment",
   onCloseModal,
+  submitEvent,
   name,
 }) {
   return (
@@ -16,8 +17,10 @@ function ModalWithForm({
             onClick={onCloseModal}
           ></button>
           <h3 className="form_title">{name}</h3>
-          {children}
-          <button type="submit">{buttonText}</button>
+          <form action="submit" onSubmit={submitEvent}>
+            {children}
+            <button type="submit">{buttonText}</button>{" "}
+          </form>
         </div>
       </div>
     </>

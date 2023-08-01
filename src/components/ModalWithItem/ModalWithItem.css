@@ -1,0 +1,35 @@
+.modal__card {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  max-width: 498px;
+  height: 610px;
+  padding: 0;
+}
+.card-ilustration {
+  position: relative;
+  width: 100%;
+}
+.modal_close-button {
+  background-image: url("../../images/close-button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 0;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+.modal__preview-image {
+  max-width: 100%;
+  max-height: 70%;
+}
+
+.card_content {
+  margin-left: 20px;
+}

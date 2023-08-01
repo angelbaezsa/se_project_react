@@ -3,6 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 
 .logo {
@@ -20,4 +21,5 @@
 .header__button {
   background-color: #00000000;
   border: 0;
+  cursor: pointer;
 }
