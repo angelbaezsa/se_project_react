@@ -1,7 +1,7 @@
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import { useMemo } from "react";
-import { timeFormatter } from "../utils/Constants";
+import { timeFormatter } from "../../utils/Constants";
 
 function Main({ temperature, onClickedCard, isDay, clothingItems }) {
   const typeOfWeather = useMemo(() => {

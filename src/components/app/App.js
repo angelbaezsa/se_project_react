@@ -5,9 +5,9 @@ import "./App.css";
 import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ModalWithItem from "../ModalWithItem/ModalWithItem";
-import getWeather from "../utils/weatherAPI";
-import { timeFormatter } from "../utils/Constants";
-import { defaultClothingItems } from "../utils/Constants";
+import getWeather from "../../utils/weatherAPI";
+import { timeFormatter } from "../../utils/Constants";
+import { defaultClothingItems } from "../../utils/Constants";
 
 function App() {
   //this state handles the add item modal

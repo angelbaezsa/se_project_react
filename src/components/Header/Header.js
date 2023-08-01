@@ -1,7 +1,7 @@
 import logo from "../../images/Logo.svg";
 import avatar from "../../images/Avatar img.svg";
 import "../Header/Header.css";
-import { dateFormatter } from "../utils/Constants";
+import { dateFormatter } from "../../utils/Constants";
 
 function Header({ onCreateModal, city }) {
   return (
