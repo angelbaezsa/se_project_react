@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import "./App.css";
@@ -6,38 +6,22 @@ import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ModalWithItem from "../ModalWithItem/ModalWithItem";
 import getWeather from "../../utils/weatherAPI";
-import { timeFormatter } from "../../utils/Constants";
-import { defaultClothingItems } from "../../utils/Constants";
+import { timeFormatter } from "../../utils/constants";
+import { defaultClothingItems } from "../../utils/constants";
 
 function App() {
   //this state handles the add item modal
   const [activeModal, setActiveModal] = useState("");
   //this state handles the selected cards
   const [selectedCard, setSelectedCard] = useState({});
-  const [currentTemperature, setCurrentTemperature] = useState();
-  const [currentCity, setCurrentCity] = useState();
-  const [currentTime, setCurrentTime] = useState();
+  const [currentTemperature, setCurrentTemperature] = useState("");
+  const [currentCity, setCurrentCity] = useState("");
   const [itemName, setItemName] = useState("");
   const [itemUrl, setItemUrl] = useState("");
-  const [weatherType, setWeatherType] = useState();
+  const [weatherType, setWeatherType] = useState("");
   const [defaultClothes, setDefaultClothes] = useState([
     ...defaultClothingItems,
   ]);
-
-  useEffect(() => {
-    renderMainComponent();
-  }, [defaultClothes]);
-
-  const renderMainComponent = () => {
-    return (
-      <Main
-        temperature={currentTemperature}
-        isDay={currentTime}
-        onClickedCard={handleOpenPreviewModal}
-        clothingItems={defaultClothes}
-      />
-    );
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -53,22 +37,19 @@ function App() {
     ]);
   };
 
-  const handleTime = () => {
-    const isDay = timeFormatter();
-    setCurrentTime(isDay);
-  };
+  const handleAPI = useCallback(() => {
+    getWeather()
+      .then((res) => {
+        setCurrentTemperature(res.main.temp);
+        setCurrentCity(res.name);
+        console.log(res.weather[0].main);
+      })
+      .catch((error) => console.error(`Error${error}`));
+  }, [setCurrentCity, setCurrentTemperature]);
 
   useEffect(() => {
-    handleTime();
-  }, []);
-
-  const handleAPI = () => {
-    getWeather().then((res) => {
-      setCurrentTemperature(res.main.temp);
-      setCurrentCity(res.name);
-      console.log(res.weather[0].main);
-    });
-  };
+    handleAPI();
+  }, [handleAPI]);
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -83,11 +64,17 @@ function App() {
   };
 
   return (
-    <div onLoad={handleAPI} className="page">
+    <div className="page">
       <section className="Header">
         <Header onCreateModal={handleCreateModal} city={currentCity} />
       </section>
-      <section>{renderMainComponent()}</section>
+      <section>
+        <Main
+          temperature={currentTemperature}
+          onClickedCard={handleOpenPreviewModal}
+          clothingItems={defaultClothes}
+        />
+      </section>
       <section className="page__footer">
         <Footer />
       </section>
@@ -123,7 +110,7 @@ function App() {
               }}
             />
           </label>
-          <h4 className="form__label radio-button_label">
+          <h4 className="form__label radio-button_title">
             Select weather type:
           </h4>
           <div>
@@ -138,7 +125,7 @@ function App() {
                 checked={weatherType === "hot"}
                 onChange={() => setWeatherType("hot")}
               />
-              <label>Hot</label>
+              <label className="radio-button_label">Hot</label>
             </div>
             <div>
               <input
@@ -150,7 +137,7 @@ function App() {
                 checked={weatherType === "warm"}
                 onChange={() => setWeatherType("warm")}
               />
-              <label>Warm</label>
+              <label className="radio-button_label">Warm</label>
             </div>
             <div>
               <input
@@ -162,7 +149,7 @@ function App() {
                 checked={weatherType === "cold"}
                 onChange={() => setWeatherType("cold")}
               />
-              <label>Cold</label>
+              <label className="radio-button_label">Cold</label>
             </div>
           </div>
         </ModalWithForm>

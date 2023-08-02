@@ -1,3 +1,7 @@
+export const apiKey = `e1e0e54354cd562d3677c265acd0130b`;
+export const longitude = -75.259072;
+export const latitude = 39.918446;
+
 export const defaultClothingItems = [
   {
     _id: 0,
@@ -37,38 +41,70 @@ export const defaultClothingItems = [
   },
 ];
 
-export const dateFormatter = () => {
-  const date = new Date();
-  var options = {
-    // weekday: "long",
-    // year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  return date.toLocaleDateString("en-US", options);
-};
-
-export const timeFormatter = () => {
-  const currentTime = new Date();
-
-  // Get the current hour (0-23) and minutes (0-59) from the Date object
-  const currentHour = currentTime.getHours();
-  const currentMinutes = currentTime.getMinutes();
-
-  // Format the time to display leading zeros for single-digit hours and minutes
-  const formattedHour = currentHour.toString().padStart(2, "0");
-  const formattedMinutes = currentMinutes.toString().padStart(2, "0");
-
-  // Display the current time
-  console.log(`Current time: ${formattedHour}:${formattedMinutes}`);
-
-  if (formattedHour >= 18 || formattedHour <= 6) {
-    console.log("night");
-    //if formatter time is more than 18:00 or less than 6:00 day:false
-    return false;
-  } else if (formattedHour > 6 && formattedHour < 18) {
-    console.log("day");
-    //if is more than 6:00 and less than 18:00 day:true
-    return true;
-  }
-};
+export const weatherOptions = [
+  {
+    url: require("../images/day/sunny.svg").default,
+    day: true,
+    type: "sunny",
+  },
+  {
+    url: require("../images/day/cloudy.svg").default,
+    day: true,
+    type: "cloudy",
+  },
+  {
+    url: require("../images/day/rainy.svg").default,
+    day: true,
+    type: "rain",
+  },
+  {
+    url: require("../images/day/lighting.svg").default,
+    day: true,
+    type: "storm",
+  },
+  {
+    url: require("../images/day/snowing.svg").default,
+    day: true,
+    type: "snow",
+  },
+  {
+    url: require("../images/day/fog.svg").default,
+    day: true,
+    type: "fog",
+  },
+  {
+    url: require("../images/night/moon.svg").default,
+    day: false,
+    type: "moon",
+  },
+  {
+    url: require("../images/night/cloud.svg").default,
+    day: false,
+    type: "cloud",
+  },
+  {
+    url: require("../images/night/rain.svg").default,
+    day: false,
+    type: "rain",
+  },
+  {
+    url: require("../images/night/lighting.svg").default,
+    day: false,
+    type: "storm",
+  },
+  {
+    url: require("../images/night/rain.svg").default,
+    day: false,
+    type: "rain",
+  },
+  {
+    url: require("../images/night/fog.svg").default,
+    day: false,
+    type: "fog",
+  },
+  {
+    url: require("../images/night/snowing.svg").default,
+    day: false,
+    type: "snowing",
+  },
+];

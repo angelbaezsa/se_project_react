@@ -34,8 +34,8 @@
   height: 25px;
   cursor: pointer;
 }
-
-.form_close-button {
+.form_close-button:hover {
+  opacity: 0.4;
 }
 
 .form_title {
@@ -53,18 +53,32 @@
   margin-bottom: 24px;
 }
 
-.radio-button_label {
+.radio-button_title {
   margin: 0;
   margin-bottom: 12px;
 }
 
-.radio-button + label {
+.radio-button + .radio-button_label {
   cursor: pointer;
   color: gray;
   border-color: gray;
 }
 
-.radio-button:checked + label {
+.radio-button:checked + .radio-button_label {
   color: #000000;
   border-color: #000000;
+}
+
+.form__button-submit {
+  margin-top: 24px;
+  width: 124px;
+  height: 36px;
+  background-color: #000000;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form__button-submit:hover {
+  background-color: rgba(112, 108, 108, 0.6);
 }

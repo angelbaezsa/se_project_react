@@ -1,21 +1,21 @@
 import logo from "../../images/Logo.svg";
 import avatar from "../../images/Avatar img.svg";
 import "../Header/Header.css";
-import { dateFormatter } from "../../utils/Constants";
+import { formatDate } from "../../utils/utils";
 
 function Header({ onCreateModal, city }) {
   return (
     <header className="header">
       <div className="logo">
-        <img src={logo}></img>
-        <p>{`${dateFormatter()}, ${city}`}</p>
+        <img src={logo} alt="logo"></img>
+        <p>{`${formatDate()}, ${city}`}</p>
       </div>
       <div className="avatar">
         <button className="header__button" type="text" onClick={onCreateModal}>
           + Add Clothes
         </button>
-        <p>Terrence Tegegne</p>
-        <img src={avatar}></img>
+        <p className="header__user-title user-title">Terrence Tegegne</p>
+        <img src={avatar} alt="Avatar"></img>
       </div>
     </header>
   );

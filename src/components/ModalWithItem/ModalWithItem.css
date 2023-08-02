@@ -25,6 +25,10 @@
   height: 25px;
   cursor: pointer;
 }
+
+.modal_close-button:hover {
+  opacity: 0.4;
+}
 .modal__preview-image {
   max-width: 100%;
   max-height: 70%;

@@ -1,11 +1,22 @@
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
-import { useMemo } from "react";
-import { timeFormatter } from "../../utils/Constants";
+import { useMemo, useState, useEffect } from "react";
+import { formatTime } from "../../utils/utils";
 import "./Main.css";
 
-function Main({ temperature, onClickedCard, isDay, clothingItems }) {
-  const typeOfWeather = useMemo(() => {
+function Main({ temperature, onClickedCard, clothingItems }) {
+  const [isDay, setIsDay] = useState();
+
+  const handleTime = () => {
+    const time = formatTime();
+    setIsDay(time);
+  };
+
+  useEffect(() => {
+    handleTime();
+  }, []);
+
+  const typeOfWeather = () => {
     if (temperature >= 72) {
       return "hot";
     } else if (temperature >= 66 && temperature <= 71) {
@@ -13,10 +24,11 @@ function Main({ temperature, onClickedCard, isDay, clothingItems }) {
     } else if (temperature <= 65) {
       return "cold";
     }
-  }, [temperature]);
+  };
+  const getTypeOfWeather = typeOfWeather();
 
   const filteredCards = clothingItems.filter((item) => {
-    return item.weather.toLocaleLowerCase() === typeOfWeather;
+    return item.weather.toLocaleLowerCase() === getTypeOfWeather;
   });
   return (
     <section className="Main">
@@ -28,7 +40,13 @@ function Main({ temperature, onClickedCard, isDay, clothingItems }) {
       Today is {temperature} F / You may want to wear:
       <section className="card_section">
         {filteredCards.map((item) => {
-          return <ItemCard item={item} onclickedCard={onClickedCard} />;
+          return (
+            <ItemCard
+              item={item}
+              key={item._id}
+              onClickedCard={onClickedCard}
+            />
+          );
         })}
       </section>
     </section>

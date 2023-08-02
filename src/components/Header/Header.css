@@ -4,6 +4,9 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  font-family: "Cabinet Grotesk";
+  font-size: 20px;
+  line-height: 24px;
 }
 
 .logo {
@@ -22,4 +25,15 @@
   background-color: #00000000;
   border: 0;
   cursor: pointer;
+  font-size: 20px;
+}
+
+.header__button:hover {
+  background: transparent;
+  background-image: -webkit-linear-gradient(top, transparent, #353838);
+  background-image: -moz-linear-gradient(top, transparent, #353838);
+  background-image: -ms-linear-gradient(top, transparent, #353838);
+  background-image: -o-linear-gradient(top, transparent, #353838);
+  background-image: linear-gradient(to bottom, transparent, #353838);
+  text-decoration: none;
 }

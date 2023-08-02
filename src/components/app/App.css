@@ -3,3 +3,13 @@
   justify-content: center;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../../../public/fonts/CabinetGrotesk-Regular.woff") format("woff");
+}
+.app {
+  font-family: "Cabinet Grotesk", "sans-serif";
+  font-style: normal;
+  font-weight: 700;
+}

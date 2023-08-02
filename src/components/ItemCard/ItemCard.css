@@ -16,6 +16,7 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 .card_title-wrapper {
   background-color: rgba(48, 47, 47, 0.365);
