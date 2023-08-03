@@ -1,3 +1,54 @@
+# Weather API Project - Clothing Suggestion App
+# Weather API Project
+
+![image](https://github.com/angelbaezsa/se_project_react/assets/47637565/3eb141e0-8b04-40f2-ac94-c8260d6cc946)
+
+
+Welcome to the Weather API Project - Clothing Suggestion App! This is a React-based web application that presents a weather card displaying the current temperature and dynamically changing images representing the time of the day. The primary function of this app is to suggest suitable clothing based on the current weather conditions.
+
+##Table of Contents
+Introduction
+Features
+Adding New Clothes
+Technologies Used
+Contributing
+License
+# Introduction
+The Weather API Project - Clothing Suggestion App is a simple and user-friendly application that fetches weather data from an external API and provides appropriate clothing recommendations for the current weather. It utilizes React, including React Hooks, to build a responsive and interactive user interface.
+
+# Features
+Display the current temperature and weather information.
+Show dynamic images representing the time of the day (e.g., sunny, cloudy, rainy).
+Suggest appropriate clothing based on the current weather conditions.
+Allow users to add new clothes with associated weather types.
+Demo
+[Include a link to a live demo or provide instructions to access the app]
+
+Clone this repository to your local machine using git clone <repository_url>.
+Navigate to the project directory: cd weather-api-project.
+Install the required dependencies with npm install.
+
+Usage
+To start the development server, run: npm start.
+The app will be accessible at http://localhost:3000.
+Enter your location or allow the app to access your location for weather data.
+The weather card will display the current temperature and suggest appropriate clothing based on the weather conditions.
+The background image on the weather card will dynamically change according to the time of the day.
+Adding New Clothes
+To add new clothes to the app along with their associated weather types, follow these steps:
+
+Click on the "Add Clothes" button on the weather card.
+Fill in the details for the new clothing item, including its name and the weather type it is suitable for (e.g., sunny, rainy, cold).
+Click on the "Save" button to add the new clothing item to the app's database.
+Technologies Used
+React: A JavaScript library for building user interfaces.
+React Hooks: Used to add state and other React features to functional components.
+External Weather API: Fetches weather data from an external API to display weather information.
+CSS: For styling the user interface.
+Contributing
+Contributions to the Weather API Project - Clothing Suggestion App are always welcome! If you find any issues or want to add new features, feel free to open an issue or submit a pull request.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
