@@ -1,20 +1,10 @@
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
-import { useMemo, useState, useEffect } from "react";
-import { formatTime } from "../../utils/utils";
+import { checkIsDay } from "../../utils/utils";
 import "./Main.css";
 
 function Main({ temperature, onClickedCard, clothingItems }) {
-  const [isDay, setIsDay] = useState();
-
-  const handleTime = () => {
-    const time = formatTime();
-    setIsDay(time);
-  };
-
-  useEffect(() => {
-    handleTime();
-  }, []);
+  const isDay = checkIsDay();
 
   const typeOfWeather = () => {
     if (temperature >= 72) {
@@ -25,10 +15,10 @@ function Main({ temperature, onClickedCard, clothingItems }) {
       return "cold";
     }
   };
-  const getTypeOfWeather = typeOfWeather();
+  const TypeOfWeather = typeOfWeather();
 
   const filteredCards = clothingItems.filter((item) => {
-    return item.weather.toLocaleLowerCase() === getTypeOfWeather;
+    return item.weather.toLocaleLowerCase() === TypeOfWeather;
   });
   return (
     <section className="Main">

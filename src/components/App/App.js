@@ -36,7 +36,7 @@ function App() {
     ]);
   };
 
-  const handleAPI = useCallback(() => {
+  const handleAPI = () => {
     getWeather()
       .then((res) => {
         setCurrentTemperature(res.main.temp);
@@ -44,11 +44,11 @@ function App() {
         console.log(res.weather[0].main);
       })
       .catch((error) => console.error(`Error${error}`));
-  }, [setCurrentCity, setCurrentTemperature]);
+  };
 
   useEffect(() => {
     handleAPI();
-  }, [handleAPI]);
+  }, []);
 
   const handleCreateModal = () => {
     setActiveModal("create");

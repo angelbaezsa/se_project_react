@@ -9,7 +9,7 @@ export const formatDate = () => {
   return date.toLocaleDateString("en-US", options);
 };
 
-export const formatTime = () => {
+export const checkIsDay = () => {
   const currentTime = new Date();
 
   // Get the current hour (0-23) and minutes (0-59) from the Date object

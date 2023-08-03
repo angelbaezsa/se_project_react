@@ -11,7 +11,7 @@
 }
 
 .modal_content {
-  background-color: aliceblue;
+  background-color: #fff;
   box-sizing: border-box;
   align-items: start;
   border-radius: 20px;
@@ -80,5 +80,5 @@
 }
 
 .form__button-submit:hover {
-  background-color: rgba(112, 108, 108, 0.6);
+  opacity: 0.5;
 }
