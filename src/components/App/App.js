@@ -6,7 +6,6 @@ import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ModalWithItem from "../ModalWithItem/ModalWithItem";
 import getWeather from "../../utils/weatherAPI";
-import { timeFormatter } from "../../utils/constants";
 import { defaultClothingItems } from "../../utils/constants";
 
 function App() {
