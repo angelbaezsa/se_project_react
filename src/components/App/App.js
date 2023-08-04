@@ -36,7 +36,7 @@ function App() {
     ]);
   };
 
-  const handleAPI = () => {
+  useEffect(() => {
     getWeather()
       .then((res) => {
         setCurrentTemperature(res.main.temp);
@@ -44,10 +44,6 @@ function App() {
         console.log(res.weather[0].main);
       })
       .catch((error) => console.error(`Error${error}`));
-  };
-
-  useEffect(() => {
-    handleAPI();
   }, []);
 
   const handleCreateModal = () => {
@@ -83,7 +79,7 @@ function App() {
           name="Add-Clothes"
           onCloseModal={handleCloseModal}
         >
-          <label className="">
+          <label className="form__input-label">
             Name
             <input
               className="form__input input_type_name"
@@ -96,7 +92,7 @@ function App() {
               }}
             />
           </label>
-          <label type="text">
+          <label className="form__input-label" type="text">
             Image URL
             <input
               className="form__input input_type_url"

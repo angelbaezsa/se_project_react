@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.506);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .modal_content {
@@ -19,11 +19,15 @@
   flex-direction: column;
   flex-wrap: wrap;
   padding: 28px;
+  padding-bottom: 36px;
   width: 496px;
-  height: 436px;
+
+  position: relative;
 }
 .form_close-button {
-  position: relative;
+  position: absolute;
+  top: 20px;
+  right: 28px;
   margin-left: auto;
   background-image: url("../../images/close-button.svg");
   background-repeat: no-repeat;
@@ -48,14 +52,17 @@
   border-top: hidden;
   border-right: hidden;
   border-left: hidden;
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.3);
   background-color: transparent;
+  margin-top: 8px;
   margin-bottom: 24px;
+  font-size: 16px;
 }
 
 .radio-button_title {
   margin: 0;
   margin-bottom: 12px;
+  font-size: 16px;
 }
 
 .radio-button + .radio-button_label {
@@ -77,6 +84,7 @@
   border: 0;
   border-radius: 4px;
   cursor: pointer;
+  color: white;
 }
 
 .form__button-submit:hover {

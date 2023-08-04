@@ -6,7 +6,7 @@ import "./Main.css";
 function Main({ temperature, onClickedCard, clothingItems }) {
   const isDay = checkIsDay();
 
-  const typeOfWeather = () => {
+  const getWeatherType = () => {
     if (temperature >= 72) {
       return "hot";
     } else if (temperature >= 66 && temperature <= 71) {
@@ -15,10 +15,10 @@ function Main({ temperature, onClickedCard, clothingItems }) {
       return "cold";
     }
   };
-  const TypeOfWeather = typeOfWeather();
+  const kindOfWeather = getWeatherType();
 
   const filteredCards = clothingItems.filter((item) => {
-    return item.weather.toLocaleLowerCase() === TypeOfWeather;
+    return item.weather.toLocaleLowerCase() === kindOfWeather;
   });
   return (
     <section className="Main">
