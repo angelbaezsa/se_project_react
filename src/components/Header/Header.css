@@ -33,4 +33,13 @@
 
 .user-title {
   align-items: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.header__date {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
 }

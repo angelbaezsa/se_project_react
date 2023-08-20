@@ -9,7 +9,7 @@ function Header({ onCreateModal, city }) {
     <header className="header">
       <div className="logo">
         <img src={logo} alt="logo"></img>
-        <p>{`${formatDate()}, ${city}`}</p>
+        <p className="header__date">{`${formatDate()}, ${city}`}</p>
       </div>
       <div className="avatar">
         <ToggleSwitch />

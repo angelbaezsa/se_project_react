@@ -22,10 +22,10 @@
   background-color: black;
   position: absolute;
 }
-.switch__slider-f {
+.switch__slider-c {
   margin-left: 5px;
 }
-.switch__slider-c {
+.switch__slider-f {
   margin-left: 23px;
 }
 
@@ -33,18 +33,20 @@
   position: relative;
   right: 55px;
   font-size: 16px;
-  color: #ffffff;
+  color: #7e7e7e;
+  font-weight: 700;
 }
 .switch__option-f {
   position: relative;
   right: 20px;
   font-size: 16px;
-  color: #ffffff;
+  color: #7e7e7e;
+  font-weight: 700;
 }
 .switch__active {
   font-family: Cabinet Grotesk;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
-  color: #7e7e7e;
+  color: #ffffff;
 }
