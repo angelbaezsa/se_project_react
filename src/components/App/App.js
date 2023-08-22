@@ -5,7 +5,7 @@ import "./App.css";
 import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ModalWithItem from "../ModalWithItem/ModalWithItem";
-import getWeather from "../../utils/weatherAPI";
+import { getWeather, parseWeatherForecast } from "../../utils/weatherAPI";
 import { defaultClothingItems } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../context/CurrentTemperatureUnitContext";
 
@@ -14,9 +14,9 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   //this state handles the selected cards
   const [selectedCard, setSelectedCard] = useState({}); // selects a card item to display in modal
-  const [currentTemperature, setCurrentTemperature] = useState(""); //holds temperature from API res
-  const [currentTemperatureUnit, setcurrentTemperatureUnit] = useState("f"); //Farenheit || Celsius
+  const [currentTemperature, setCurrentTemperature] = useState(); //holds temperature from API res
   const [currentCity, setCurrentCity] = useState(""); //holds city from API res
+  const [currentTemperatureUnit, setcurrentTemperatureUnit] = useState("f"); //Farenheit || Celsius
   const [itemName, setItemName] = useState(""); //info for new card item
   const [itemUrl, setItemUrl] = useState(""); //info for new card item
   const [weatherType, setWeatherType] = useState(""); //info for new card item
@@ -38,11 +38,11 @@ function App() {
       newGarment,
     ]);
   };
-
   useEffect(() => {
     getWeather()
       .then((res) => {
-        setCurrentTemperature(res.main.temp);
+        const forecast = parseWeatherForecast(res); //returns an object of type forecast
+        setCurrentTemperature(forecast);
         setCurrentCity(res.name);
         console.log(res.weather[0].main);
       })
