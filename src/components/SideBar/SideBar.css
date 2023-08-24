@@ -1,0 +1,16 @@
+.sidebar {
+  width: 386px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  column-gap: 16px;
+}
+
+.sidebar__avatar {
+  width: 40px;
+}
+
+.sidebar__title {
+  margin: 6px 0 0 0;
+}

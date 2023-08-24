@@ -8,6 +8,8 @@ import ModalWithItem from "../ModalWithItem/ModalWithItem";
 import { getWeather, parseWeatherForecast } from "../../utils/weatherAPI";
 import { defaultClothingItems } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../context/CurrentTemperatureUnitContext";
+import { Switch, Route } from "react-router-dom";
+import Profile from "../Profile/Profile";
 
 function App() {
   //this state handles the add item modal
@@ -77,13 +79,23 @@ function App() {
         <section className="Header">
           <Header onCreateModal={handleCreateModal} city={currentCity} />
         </section>
-        <section>
-          <Main
-            temperature={currentTemperature}
-            onClickedCard={handleOpenPreviewModal}
-            clothingItems={defaultClothes}
-          />
-        </section>
+        <Switch>
+          <Route exact path="/">
+            <Main
+              temperature={currentTemperature}
+              onClickedCard={handleOpenPreviewModal}
+              clothingItems={defaultClothes}
+            />
+          </Route>
+          <Route path="/profile">
+            <Profile
+              clothingItems={defaultClothes}
+              onClickedCard={handleOpenPreviewModal}
+              onCreateModal={handleCreateModal}
+            />
+          </Route>
+        </Switch>
+        <section></section>
         <section className="page__footer">
           <Footer />
         </section>

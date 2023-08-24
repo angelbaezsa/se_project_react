@@ -1,0 +1,39 @@
+.profile__main {
+  display: flex;
+  flex-direction: row;
+  margin-top: 63px;
+}
+.profile__card_section {
+  margin-top: 20px;
+  margin-bottom: 100px;
+  max-width: 1015px;
+}
+.title-wrapper {
+  /* padding-left: 50px; */
+  display: flex;
+}
+
+.main__title {
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.main__button {
+  margin-left: 20px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.main__button:hover {
+  opacity: 0.6;
+}

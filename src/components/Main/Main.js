@@ -13,7 +13,6 @@ function Main({ temperature, onClickedCard, clothingItems }) {
   const temp = Math.ceil(temperature?.temperature?.[currentTemperatureUnit]);
   console.log(temp);
   const isDay = checkIsDay();
-  console.log(temperature?.temperature?.f);
 
   const getWeatherType = () => {
     if (temperature?.temperature?.f >= 72) {
@@ -28,10 +27,12 @@ function Main({ temperature, onClickedCard, clothingItems }) {
     }
   };
   const kindOfWeather = getWeatherType();
-
   const filteredCards = clothingItems.filter((item) => {
     return item.weather.toLocaleLowerCase() === kindOfWeather;
   });
+  console.log(temperature?.temperature?.f);
+  console.log(kindOfWeather, filteredCards);
+
   return (
     <section className="Main">
       {isDay ? (
