@@ -39,6 +39,7 @@ function App() {
       ...previeusDefaultClothes,
       newGarment,
     ]);
+    setActiveModal("");
   };
   useEffect(() => {
     getWeather()
@@ -56,6 +57,8 @@ function App() {
   };
   const handleCloseModal = () => {
     setActiveModal("");
+    setItemName("");
+    setItemUrl("");
   };
   //this state handles the preview item modal
   const handleOpenPreviewModal = (card) => {
@@ -68,6 +71,16 @@ function App() {
     } else if (currentTemperatureUnit === "f") {
       setcurrentTemperatureUnit("c");
     }
+  };
+
+  const handleDelete = (card) => {
+    console.log(card._id);
+    const updatedClothes = defaultClothes.filter(
+      (item) => item._id !== card._id
+    );
+    console.log(updatedClothes);
+    setDefaultClothes(updatedClothes);
+    setActiveModal("");
   };
 
   console.log(currentTemperatureUnit);
@@ -180,6 +193,7 @@ function App() {
             name={"preview"}
             item={selectedCard}
             onCloseModal={handleCloseModal}
+            onDelete={handleDelete}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>

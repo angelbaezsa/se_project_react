@@ -1,5 +1,5 @@
 import "./ModalWithItem.css";
-const ModalWithItem = ({ name, onCloseModal, item }) => {
+const ModalWithItem = ({ onDelete, name, onCloseModal, item }) => {
   return (
     <div className={`modal modal_type_${name}`}>
       <div className="modal_content modal__card">
@@ -12,8 +12,16 @@ const ModalWithItem = ({ name, onCloseModal, item }) => {
         </div>
 
         <div className="card_content">
-          <p>{item.name}</p>
-          <p>Weather: {item.weather}</p>
+          <p className="card__content-subtitle">{item.name}</p>
+          <p className="card__content-subtitle">Weather: {item.weather}</p>
+          <button
+            onClick={() => {
+              onDelete(item);
+            }}
+            className="add-item-form__delete-button delete-button"
+          >
+            Delete Item
+          </button>
         </div>
       </div>
     </div>
