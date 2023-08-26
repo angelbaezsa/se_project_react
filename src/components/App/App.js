@@ -80,7 +80,7 @@ function App() {
     setSelectedCard(card);
     setActiveModal("preview");
   };
-  const handleToggleSwitch = () => {
+  const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "c") {
       setcurrentTemperatureUnit("f");
     } else if (currentTemperatureUnit === "f") {
@@ -112,7 +112,7 @@ function App() {
     <div className="page">
       <clothingItemsContext.Provider value={{ defaultClothes }}>
         <CurrentTemperatureUnitContext.Provider
-          value={{ currentTemperatureUnit, handleToggleSwitch }}
+          value={{ currentTemperatureUnit, handleToggleSwitchChange }}
         >
           <section className="Header">
             <Header onCreateModal={handleCreateModal} city={currentCity} />
