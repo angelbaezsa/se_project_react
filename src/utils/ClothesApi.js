@@ -1,7 +1,7 @@
 //"https://my-json-server.typicode.com/**<angelbaezsa>**/se_project_react"
 
 const baseUrl =
-  "https://my-json-server.typicode.com/**<angelbaezsa>**/se_project_react";
+  "https://my-json-server.typicode.com/**<angelbaezsa>**/se_project_react/database";
 
 const checkResponse = (response) => {
   if (response.ok) {
