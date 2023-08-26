@@ -6,8 +6,8 @@ import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ModalWithItem from "../ModalWithItem/ModalWithItem";
 import { getWeather, parseWeatherForecast } from "../../utils/weatherAPI";
-import CurrentTemperatureUnitContext from "../context/CurrentTemperatureUnitContext";
-import clothingItemsContext from "../context/clothingItemsContext";
+import CurrentTemperatureUnitContext from "../../context/CurrentTemperatureUnitContext";
+import clothingItemsContext from "../../context/clothingItemsContext";
 import { Switch, Route } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import {
