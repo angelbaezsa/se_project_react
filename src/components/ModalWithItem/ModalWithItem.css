@@ -11,6 +11,7 @@
 .card-ilustration {
   position: relative;
   width: 100%;
+  max-height: 400px;
 }
 .modal_close-button {
   background-image: url("../../images/close-button.svg");
@@ -36,4 +37,35 @@
 
 .card_content {
   margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  justify-content: center;
+  cursor: pointer;
+}
+.card__content-subtitle {
+  margin: 0;
+}
+
+.delete-button {
+  position: absolute;
+  border: 0;
+  background-color: transparent;
+  color: #ff4d00;
+  right: 36px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  opacity: 0.7;
 }

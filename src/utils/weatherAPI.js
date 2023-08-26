@@ -15,4 +15,14 @@ const checkResponse = (response) => {
   return Promise.reject(`Error ${response.status}`);
 };
 
-export default getWeather;
+const parseWeatherForecast = (data) => {
+  const weather = {
+    temperature: { f: data.main.temp, c: ((data.main.temp - 32) * 5) / 9 },
+  };
+  console.log(data.weather[0].main);
+  console.log(weather, weather.city);
+
+  return weather;
+};
+
+export { getWeather, parseWeatherForecast };

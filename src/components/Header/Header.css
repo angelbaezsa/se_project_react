@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+  color: #000;
+}
 .header {
   display: flex;
   flex-direction: row;
@@ -9,16 +13,23 @@
   line-height: 24px;
 }
 
-.logo {
+.logo-wrapper {
   display: flex;
   flex-direction: row;
   column-gap: 20px;
 }
 
-.avatar {
+.logo {
+  margin-top: 10px;
+}
+
+.avatar-wrapper {
   display: flex;
   flex-direction: row;
   column-gap: 10px;
+}
+.profile__avatar {
+  margin-top: 10px;
 }
 
 .header__button {
@@ -33,4 +44,16 @@
 
 .user-title {
   align-items: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+}
+.user-title:hover {
+  opacity: 0.6;
+}
+
+.header__date {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
 }
