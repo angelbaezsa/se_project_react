@@ -3,8 +3,8 @@ import React from "react";
 import ItemCard from "../ItemCard/ItemCard";
 import { checkIsDay } from "../../utils/utils";
 import "./Main.css";
-import CurrentTemperatureUnitContext from "../context/CurrentTemperatureUnitContext";
-import clothingItemsContext from "../context/clothingItemsContext";
+import CurrentTemperatureUnitContext from "../../context/CurrentTemperatureUnitContext";
+import clothingItemsContext from "../../context/clothingItemsContext";
 import { useContext } from "react";
 // import React from "react";
 
