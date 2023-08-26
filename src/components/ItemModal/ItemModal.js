@@ -1,5 +1,5 @@
-import "./ModalWithItem.css";
-const ModalWithItem = ({ onDelete, name, onCloseModal, item }) => {
+import "./ItemModal.css";
+const ItemModal = ({ onDelete, name, onCloseModal, item }) => {
   return (
     <div className={`modal modal_type_${name}`}>
       <div className="modal_content modal__card">
@@ -27,4 +27,4 @@ const ModalWithItem = ({ onDelete, name, onCloseModal, item }) => {
     </div>
   );
 };
-export default ModalWithItem;
+export default ItemModal;
