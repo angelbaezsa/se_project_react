@@ -1,6 +1,7 @@
 import React from "react";
 import SideBar from "../SideBar/SideBar";
 import ItemCard from "../ItemCard/ItemCard";
+import ClothesSection from "../ClothesSection/CothesSection";
 import "./Profile.css";
 
 const Profile = ({ onCreateModal, clothingItems, onClickedCard }) => {
@@ -14,17 +15,10 @@ const Profile = ({ onCreateModal, clothingItems, onClickedCard }) => {
             + Add new
           </button>
         </div>
-        <div className="card_section profile__card_section">
-          {clothingItems.map((item) => {
-            return (
-              <ItemCard
-                item={item}
-                key={item._id}
-                onClickedCard={onClickedCard}
-              />
-            );
-          })}
-        </div>
+        <ClothesSection
+          clothingItems={clothingItems}
+          onClickedCard={onClickedCard}
+        />
       </div>
     </div>
   );
