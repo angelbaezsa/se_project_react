@@ -8,7 +8,7 @@ const ModalWithItem = ({ onDelete, name, onCloseModal, item }) => {
             className="modal_close-button"
             onClick={onCloseModal}
           ></button>
-          <img className="modal__preview-image" src={item.link} alt="" />
+          <img className="modal__preview-image" src={item.imageUrl} alt="" />
         </div>
 
         <div className="card_content">
