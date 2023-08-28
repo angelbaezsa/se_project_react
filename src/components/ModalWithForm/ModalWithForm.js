@@ -2,8 +2,8 @@
 //(you shouldn't have only inputs in AddItemModal.js). Everything should be in AddItemModal.js
 //including handleSubmit and so on.
 import "./ModalWithForm.css";
-
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 
 function ModalWithForm({ children, onCloseModal, submitEvent, name }) {
   return (
