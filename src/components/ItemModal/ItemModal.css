@@ -12,6 +12,7 @@
   position: relative;
   width: 100%;
   max-height: 400px;
+  margin-bottom: 100px;
 }
 .modal_close-button {
   background-image: url("../../images/close-button.svg");
@@ -32,13 +33,28 @@
 }
 .modal__preview-image {
   max-width: 100%;
-  max-height: 70%;
+  /* height: 70%; */
+}
+
+.modal_preview_content {
+  background-color: #fff;
+  box-sizing: border-box;
+  align-items: start;
+  border-radius: 20px;
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  padding: 0;
+  padding-bottom: 36px;
+  width: 496px;
+  position: relative;
 }
 
 .card_content {
   margin-left: 20px;
   display: flex;
   flex-direction: column;
+  justify-self: baseline;
   position: relative;
   width: 100%;
   font-size: 20px;

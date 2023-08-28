@@ -10,7 +10,7 @@ body {
   padding-right: 40px;
 }
 
-.Main {
+.main {
   box-sizing: border-box;
   max-width: 1440px;
   display: flex;

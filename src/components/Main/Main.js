@@ -4,13 +4,13 @@ import ItemCard from "../ItemCard/ItemCard";
 import { checkIsDay } from "../../utils/utils";
 import "./Main.css";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
-import clothingItemsContext from "../../contexts/clothingItemsContext";
+import ClothingItemsContext from "../../contexts/ClothingItemsContext";
 import { useContext } from "react";
 // import React from "react";
 
 function Main({ temperature, onClickedCard, clothingItems }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  const { defaultClothes } = useContext(clothingItemsContext);
+  const { defaultClothes } = useContext(ClothingItemsContext);
   // console.log(currentTemperatureUnit);
   const temp = Math.ceil(temperature?.temperature?.[currentTemperatureUnit]);
   console.log(temp);
@@ -21,15 +21,16 @@ function Main({ temperature, onClickedCard, clothingItems }) {
       return "hot";
     } else if (
       temperature?.temperature?.f >= 66 &&
-      temperature?.temperature?.f <= 71
+      temperature?.temperature?.f < 72
     ) {
       return "warm";
-    } else if (temperature?.temperature?.f <= 65) {
+    } else if (temperature?.temperature?.f < 66) {
       return "cold";
     }
   };
 
   const kindOfWeather = getWeatherType();
+  console.log(kindOfWeather);
 
   const filteredCards = defaultClothes.filter((item) => {
     return item.weather.toLocaleLowerCase() === kindOfWeather;
@@ -38,7 +39,7 @@ function Main({ temperature, onClickedCard, clothingItems }) {
   // console.log(kindOfWeather, filteredCards);
 
   return (
-    <section className="Main">
+    <main className="main">
       {isDay ? (
         <WeatherCard day={true} type={"cloudy"} temperature={temp} />
       ) : (
@@ -57,7 +58,7 @@ function Main({ temperature, onClickedCard, clothingItems }) {
           );
         })}
       </section>
-    </section>
+    </main>
   );
 }
 

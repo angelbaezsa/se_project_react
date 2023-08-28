@@ -1,7 +1,7 @@
 import React from "react";
 
-const clothingItemsContext = React.createContext({
+const ClothingItemsContext = React.createContext({
   defaultClothes: [],
 });
 
-export default clothingItemsContext;
+export default ClothingItemsContext;

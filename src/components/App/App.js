@@ -1,20 +1,15 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import "./App.css";
 import Main from "../Main/Main";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, parseWeatherForecast } from "../../utils/weatherAPI";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
-import clothingItemsContext from "../../contexts/clothingItemsContext";
+import ClothingItemsContext from "../../contexts/ClothingItemsContext";
 import { Switch, Route } from "react-router-dom";
 import Profile from "../Profile/Profile";
-import {
-  getClothes,
-  deleteClothing,
-  addNewClothes,
-} from "../../utils/ClothesApi";
+import { getClothes } from "../../utils/ClothesApi";
 import AddItemModal from "../AddItemModal/AddItemModal";
 
 function App() {
@@ -31,26 +26,6 @@ function App() {
   const [defaultClothes, setDefaultClothes] = useState([]); //clothes from Array given in sprint 9
   // import  from "../context/CurrentTemperatureUnitContext";
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const newGarment = {
-      name: itemName,
-      imageUrl: itemUrl,
-      weather: weatherType,
-    };
-
-    addNewClothes(newGarment)
-      .then((response) => {
-        console.log(response);
-        setDefaultClothes((previeusDefaultClothes) => [
-          ...previeusDefaultClothes,
-          newGarment,
-        ]);
-      })
-      .catch((error) => console.error(error));
-    setActiveModal("");
-  };
-
   //this use effect charges the weather api
   useEffect(() => {
     getWeather()
@@ -61,10 +36,11 @@ function App() {
         console.log(res.weather[0].main);
       })
       .catch((error) => console.error(`Error${error}`));
-    getClothes().then((response) => {
-      debugger;
-      setDefaultClothes(response);
-    });
+    getClothes()
+      .then((response) => {
+        setDefaultClothes(response);
+      })
+      .catch((error) => console.error(`Error${error}`));
   }, []);
 
   const handleCreateModal = () => {
@@ -87,30 +63,22 @@ function App() {
       setcurrentTemperatureUnit("c");
     }
   };
-  const handleDelete = (card) => {
-    // console.log(card._id);
-    // const updatedClothes = defaultClothes.filter(
-    //   (item) => item._id !== card._id
-    // );
-    // console.log(updatedClothes);
-    // setDefaultClothes(updatedClothes);
-    deleteClothing(card._id)
-      .then((res) => {
-        const updatedClothes = defaultClothes.filter((item) => {
-          return item._id !== card._id;
-        });
-        setDefaultClothes(updatedClothes);
-        console.log(defaultClothes);
-      })
-      .then()
-      .catch((error) => console.error(error));
-    setActiveModal("");
-  };
 
-  // console.log(currentTemperatureUnit);
+  // const handleDelete = (card) => {
+  //   deleteClothing(card._id)
+  //     .then((res) => {
+  //       const updatedClothes = defaultClothes.filter((item) => {
+  //         return item._id !== card._id;
+  //       });
+  //       setDefaultClothes(updatedClothes);
+  //       handleCloseModal();
+  //     })
+  //     .catch((error) => console.error(error));
+  // };
+
   return (
     <div className="page">
-      <clothingItemsContext.Provider value={{ defaultClothes }}>
+      <ClothingItemsContext.Provider value={{ defaultClothes }}>
         <CurrentTemperatureUnitContext.Provider
           value={{ currentTemperatureUnit, handleToggleSwitchChange }}
         >
@@ -138,31 +106,28 @@ function App() {
             <Footer />
           </section>
           {activeModal === "create" && (
-            <ModalWithForm
-              submitEvent={handleSubmit}
-              name="Add-Clothes"
+            <AddItemModal
+              itemName={itemName}
+              setItemName={setItemName}
+              itemUrl={itemUrl}
+              setItemUrl={setItemUrl}
+              weatherType={weatherType}
+              setWeatherType={setWeatherType}
+              setDefaultClothes={setDefaultClothes}
               onCloseModal={handleCloseModal}
-            >
-              <AddItemModal
-                itemName={itemName}
-                setItemName={setItemName}
-                itemUrl={itemUrl}
-                setItemUrl={setItemUrl}
-                weatherType={weatherType}
-                setWeatherType={setWeatherType}
-              />
-            </ModalWithForm>
+            />
           )}
           {activeModal === "preview" && (
             <ItemModal
               name={"preview"}
               item={selectedCard}
               onCloseModal={handleCloseModal}
-              onDelete={handleDelete}
+              defaultClothes={defaultClothes}
+              setDefaultClothes={setDefaultClothes}
             />
           )}
         </CurrentTemperatureUnitContext.Provider>
-      </clothingItemsContext.Provider>
+      </ClothingItemsContext.Provider>
     </div>
   );
 }

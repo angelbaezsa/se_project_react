@@ -10,36 +10,34 @@ const ToggleSwitch = () => {
   console.log(`Status ${currentTemperatureUnit}`);
 
   return (
-    <>
-      <label className="switch">
-        <input
-          className="switch__box"
-          type="checkbox"
-          onChange={handleToggleSwitchChange}
-        />
-        <span
-          className={
-            currentTemperatureUnit === "f"
-              ? "switch__slider switch__slider-f"
-              : "switch__slider switch__slider-c"
-          }
-        ></span>
-        <p
-          className={`switch__option-f ${
-            currentTemperatureUnit === "f" && "switch__active"
-          }`}
-        >
-          F
-        </p>
-        <p
-          className={`switch__option-c ${
-            currentTemperatureUnit === "c" && "switch__active"
-          }`}
-        >
-          C
-        </p>
-      </label>
-    </>
+    <label className="switch">
+      <input
+        className="switch__box"
+        type="checkbox"
+        onChange={handleToggleSwitchChange}
+      />
+      <span
+        className={
+          currentTemperatureUnit === "f"
+            ? "switch__slider switch__slider-f"
+            : "switch__slider switch__slider-c"
+        }
+      ></span>
+      <p
+        className={`switch__option-f ${
+          currentTemperatureUnit === "f" && "switch__active"
+        }`}
+      >
+        F
+      </p>
+      <p
+        className={`switch__option-c ${
+          currentTemperatureUnit === "c" && "switch__active"
+        }`}
+      >
+        C
+      </p>
+    </label>
   );
 };
 

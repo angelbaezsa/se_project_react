@@ -11,12 +11,14 @@ const WeatherCard = ({ day, type = "cloudy", temperature }) => {
 
   const imageSrc = weatherOption.url;
   return (
-    <>
-      <div className="weatherCard">
-        <h3 className="weathercard__info">{`${temperature} ${currentTemperatureUnit.toUpperCase()}`}</h3>
-        <img className="weathercard__image" src={imageSrc} alt=""></img>
-      </div>
-    </>
+    <div className="weatherCard">
+      <h3 className="weathercard__info">{`${temperature} ${currentTemperatureUnit.toUpperCase()}`}</h3>
+      <img
+        className="weathercard__image"
+        src={imageSrc}
+        alt={`Ilustration of weather card`}
+      ></img>
+    </div>
   );
 };
 export default WeatherCard;
