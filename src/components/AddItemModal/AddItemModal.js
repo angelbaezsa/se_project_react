@@ -9,6 +9,7 @@ const AddItemModal = ({
   setItemUrl,
   weatherType,
   setWeatherType,
+  defaultClothes,
   setDefaultClothes,
   onCloseModal,
 }) => {
@@ -18,6 +19,7 @@ const AddItemModal = ({
       name: itemName,
       imageUrl: itemUrl,
       weather: weatherType,
+      _id: defaultClothes.lenght,
     };
 
     addNewClothes(newGarment)

@@ -64,18 +64,6 @@ function App() {
     }
   };
 
-  // const handleDelete = (card) => {
-  //   deleteClothing(card._id)
-  //     .then((res) => {
-  //       const updatedClothes = defaultClothes.filter((item) => {
-  //         return item._id !== card._id;
-  //       });
-  //       setDefaultClothes(updatedClothes);
-  //       handleCloseModal();
-  //     })
-  //     .catch((error) => console.error(error));
-  // };
-
   return (
     <div className="page">
       <ClothingItemsContext.Provider value={{ defaultClothes }}>
@@ -113,6 +101,7 @@ function App() {
               setItemUrl={setItemUrl}
               weatherType={weatherType}
               setWeatherType={setWeatherType}
+              defaultClothes={defaultClothes}
               setDefaultClothes={setDefaultClothes}
               onCloseModal={handleCloseModal}
             />
