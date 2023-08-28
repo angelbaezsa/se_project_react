@@ -95,12 +95,6 @@
       "name": "T-Shirt",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
-    },
-    {
-      "name": "shirt",
-      "weather": "warm",
-      "imageUrl": "https://cdn11.bigcommerce.com/s-3wk2r/images/stencil/original/products/93/6450/rainbow-tie-dye-t-shirts-koloa-surf-co__92503.1599149818.jpg?c=2&imbypass=on&imbypass=on",
-      "_id": 17
     }
   ]
 }

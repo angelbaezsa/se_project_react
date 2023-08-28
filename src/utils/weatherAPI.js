@@ -25,4 +25,4 @@ const parseWeatherForecast = (data) => {
   return weather;
 };
 
-export { getWeather, parseWeatherForecast };
+export { getWeather, parseWeatherForecast, checkResponse };

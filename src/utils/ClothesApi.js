@@ -1,16 +1,8 @@
+import { checkResponse } from "./weatherAPI";
 //const baseUrl ="https://my-json-server.typicode.com/angelbaezsa/se_project_react";
 //const baseUrl = 'http://localhost:3001';
 
-
 const baseUrl = "http://localhost:3001";
-
-
-const checkResponse = (response) => {
-  if (response.ok) {
-    return response.json();
-  }
-  return Promise.reject(`Error ${response.status}`);
-};
 
 const getClothes = () => {
   return fetch(`${baseUrl}/items`).then((response) => checkResponse(response));
