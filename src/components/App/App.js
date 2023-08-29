@@ -11,6 +11,8 @@ import { Switch, Route } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import { getClothes } from "../../utils/ClothesApi";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import { addNewClothes } from "../../utils/ClothesApi";
+import { deleteClothing } from "../../utils/ClothesApi";
 
 function App() {
   //this state handles the add item modal
@@ -42,6 +44,31 @@ function App() {
       })
       .catch((error) => console.error(`Error${error}`));
   }, []);
+
+  const handleAddNewClothes = (newGarment) => {
+    addNewClothes(newGarment)
+      .then((response) => {
+        console.log(response);
+        setDefaultClothes((previeusDefaultClothes) => [
+          newGarment,
+          ...previeusDefaultClothes,
+        ]);
+        handleCloseModal();
+      })
+      .catch((error) => console.error(error));
+  };
+
+  const handleDelete = (card) => {
+    deleteClothing(card._id)
+      .then((res) => {
+        const updatedClothes = defaultClothes.filter((item) => {
+          return item._id !== card._id;
+        });
+        setDefaultClothes(updatedClothes);
+        handleCloseModal();
+      })
+      .catch((error) => console.error(error));
+  };
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -104,6 +131,7 @@ function App() {
               defaultClothes={defaultClothes}
               setDefaultClothes={setDefaultClothes}
               onCloseModal={handleCloseModal}
+              handleAddNewClothes={handleAddNewClothes}
             />
           )}
           {activeModal === "preview" && (
@@ -113,6 +141,7 @@ function App() {
               onCloseModal={handleCloseModal}
               defaultClothes={defaultClothes}
               setDefaultClothes={setDefaultClothes}
+              onDelete={handleDelete}
             />
           )}
         </CurrentTemperatureUnitContext.Provider>

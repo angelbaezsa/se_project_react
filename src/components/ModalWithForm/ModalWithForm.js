@@ -20,7 +20,7 @@ function ModalWithForm({ children, onCloseModal, submitEvent, name }) {
           {children}
 
           <button className="form__button-submit" type="submit">
-            Add Garment
+            {name}
           </button>
         </form>
       </div>

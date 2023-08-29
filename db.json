@@ -104,9 +104,15 @@
     },
     {
       "name": "shirt",
+      "weather": "hot",
+      "imageUrl": "https://m.media-amazon.com/images/I/71XYYrWD6nL._AC_UX679_.jpg",
+      "_id": 22
+    },
+    {
+      "name": "brown shirt",
       "weather": "warm",
-      "imageUrl": "https://cdn11.bigcommerce.com/s-3wk2r/images/stencil/original/products/93/6450/rainbow-tie-dye-t-shirts-koloa-surf-co__92503.1599149818.jpg?c=2&imbypass=on&imbypass=on",
-      "_id": 19
+      "imageUrl": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/455359/item/goods_55_455359.jpg?width=700",
+      "_id": 23
     }
   ]
 }

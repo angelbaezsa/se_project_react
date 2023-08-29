@@ -7,18 +7,8 @@ const ItemModal = ({
   name,
   onCloseModal,
   item,
+  onDelete,
 }) => {
-  const handleDelete = (card) => {
-    deleteClothing(card._id)
-      .then((res) => {
-        const updatedClothes = defaultClothes.filter((item) => {
-          return item._id !== card._id;
-        });
-        setDefaultClothes(updatedClothes);
-        onCloseModal();
-      })
-      .catch((error) => console.error(error));
-  };
   return (
     <div className={`modal modal_type_${name}`}>
       <div className="modal_preview_content modal__card">
@@ -39,7 +29,7 @@ const ItemModal = ({
           <p className="card__content-subtitle">Weather: {item.weather}</p>
           <button
             onClick={() => {
-              handleDelete(item);
+              onDelete(item);
             }}
             className="add-item-form__delete-button delete-button"
           >
