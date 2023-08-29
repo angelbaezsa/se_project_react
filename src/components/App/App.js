@@ -22,9 +22,6 @@ function App() {
   const [currentTemperature, setCurrentTemperature] = useState(); //holds temperature from API res
   const [currentCity, setCurrentCity] = useState(""); //holds city from API res
   const [currentTemperatureUnit, setcurrentTemperatureUnit] = useState("f"); //Farenheit || Celsius
-  const [itemName, setItemName] = useState(""); //info for new card item
-  const [itemUrl, setItemUrl] = useState(""); //info for new card item
-  const [weatherType, setWeatherType] = useState(""); //info for new card item
   const [defaultClothes, setDefaultClothes] = useState([]); //clothes from Array given in sprint 9
   // import  from "../context/CurrentTemperatureUnitContext";
 
@@ -45,7 +42,7 @@ function App() {
       .catch((error) => console.error(`Error${error}`));
   }, []);
 
-  const handleAddNewClothes = (newGarment) => {
+  const handleAddNewClothes = ({ newGarment, setItemName, setItemUrl }) => {
     addNewClothes(newGarment)
       .then((response) => {
         console.log(response);
@@ -54,6 +51,8 @@ function App() {
           ...previeusDefaultClothes,
         ]);
         handleCloseModal();
+        setItemName("");
+        setItemUrl("");
       })
       .catch((error) => console.error(error));
   };
@@ -75,8 +74,8 @@ function App() {
   };
   const handleCloseModal = () => {
     setActiveModal("");
-    setItemName("");
-    setItemUrl("");
+    // setItemName("");
+    // setItemUrl("");
   };
   //this state handles the preview item modal
   const handleOpenPreviewModal = (card) => {
@@ -122,14 +121,7 @@ function App() {
           </section>
           {activeModal === "create" && (
             <AddItemModal
-              itemName={itemName}
-              setItemName={setItemName}
-              itemUrl={itemUrl}
-              setItemUrl={setItemUrl}
-              weatherType={weatherType}
-              setWeatherType={setWeatherType}
               defaultClothes={defaultClothes}
-              setDefaultClothes={setDefaultClothes}
               onCloseModal={handleCloseModal}
               handleAddNewClothes={handleAddNewClothes}
             />
@@ -139,8 +131,6 @@ function App() {
               name={"preview"}
               item={selectedCard}
               onCloseModal={handleCloseModal}
-              defaultClothes={defaultClothes}
-              setDefaultClothes={setDefaultClothes}
               onDelete={handleDelete}
             />
           )}

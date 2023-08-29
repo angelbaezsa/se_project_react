@@ -97,12 +97,6 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
     },
     {
-      "name": "Rainbow shirt",
-      "weather": "warm",
-      "imageUrl": "https://cdn11.bigcommerce.com/s-3wk2r/images/stencil/original/products/93/6450/rainbow-tie-dye-t-shirts-koloa-surf-co__92503.1599149818.jpg?c=2&imbypass=on&imbypass=on",
-      "_id": 17
-    },
-    {
       "name": "shirt",
       "weather": "hot",
       "imageUrl": "https://m.media-amazon.com/images/I/71XYYrWD6nL._AC_UX679_.jpg",
@@ -110,9 +104,27 @@
     },
     {
       "name": "brown shirt",
-      "weather": "warm",
+      "weather": "cold",
       "imageUrl": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/455359/item/goods_55_455359.jpg?width=700",
-      "_id": 23
+      "_id": 24
+    },
+    {
+      "name": "shirt",
+      "weather": "hot",
+      "imageUrl": "https://i5.walmartimages.com/asr/f0bce9a8-752d-4626-9eed-fdd97e05a895.46e75fde2f4a2a699025b74f8e64e3a3.jpeg",
+      "_id": 28
+    },
+    {
+      "name": "shirt",
+      "weather": "warm",
+      "imageUrl": "https://res.cloudinary.com/teepublic/image/private/s--0RTeg0F0--/t_Resized%20Artwork/c_crop,x_10,y_10/c_fit,w_472/c_crop,g_north_west,h_629,w_472,x_0,y_0/g_north_west,u_upload:v1535405111:production:blanks:ui7syp42jhmnxtvniuwg,x_-396,y_-263/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1645146936/production/designs/27959800_0.jpg",
+      "_id": 29
+    },
+    {
+      "name": "shirt",
+      "weather": "warm",
+      "imageUrl": "https://i.etsystatic.com/31465629/r/il/dd01c1/4890678001/il_570xN.4890678001_7vv2.jpg",
+      "_id": 30
     }
   ]
 }

@@ -2,19 +2,17 @@ import React from "react";
 import "./AddItemModal.css";
 import { addNewClothes } from "../../utils/ClothesApi";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { useState } from "react";
 
 const AddItemModal = ({
-  itemName,
-  setItemName,
-  itemUrl,
-  setItemUrl,
-  weatherType,
-  setWeatherType,
   defaultClothes,
-  setDefaultClothes,
   onCloseModal,
   handleAddNewClothes,
 }) => {
+  const [itemName, setItemName] = useState(""); //info for new card item
+  const [itemUrl, setItemUrl] = useState(""); //info for new card item
+  const [weatherType, setWeatherType] = useState(""); //info for new card item
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const newGarment = {
@@ -23,7 +21,7 @@ const AddItemModal = ({
       weather: weatherType,
       _id: defaultClothes.lenght + 1,
     };
-    handleAddNewClothes(newGarment);
+    handleAddNewClothes({ newGarment, setItemName, setItemUrl });
   };
 
   return (

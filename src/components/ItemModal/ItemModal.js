@@ -1,14 +1,7 @@
 import "./ItemModal.css";
 import { deleteClothing } from "../../utils/ClothesApi";
 
-const ItemModal = ({
-  defaultClothes,
-  setDefaultClothes,
-  name,
-  onCloseModal,
-  item,
-  onDelete,
-}) => {
+const ItemModal = ({ name, onCloseModal, item, onDelete }) => {
   return (
     <div className={`modal modal_type_${name}`}>
       <div className="modal_preview_content modal__card">
