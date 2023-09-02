@@ -2,7 +2,10 @@
 # Weather API Project
 
 <img width="1492" alt="Screenshot 2023-08-09 at 11 37 57 AM" src="https://github.com/angelbaezsa/se_project_react/assets/47637565/890cc731-4064-4b96-987a-0aeb28eca3d4">
+<img width="1508" alt="image" src="https://github.com/angelbaezsa/se_project_react/assets/47637565/9971f3a2-586e-49c4-8c28-0da9de0612ef">
 <img width="1492" alt="Screenshot 2023-08-09 at 11 37 57 AM" src="https://github.com/angelbaezsa/se_project_react/assets/47637565/9fc672ab-6e4d-402a-a14f-f481581e89ac">
+<img width="1508" alt="image" src="https://github.com/angelbaezsa/se_project_react/assets/47637565/1ac3ca31-f3a6-4372-b966-b2923f6228f0">
+
 
 
 Welcome to the Weather API Project - Clothing Suggestion App! This is a React-based web application that presents a weather card displaying the current temperature and dynamically changing images representing the time of the day. The primary function of this app is to suggest suitable clothing based on the current weather conditions.
