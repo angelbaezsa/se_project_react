@@ -1,0 +1,74 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal_content {
+  background-color: #fff;
+  box-sizing: border-box;
+  align-items: start;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 28px;
+  padding-bottom: 36px;
+  width: 496px;
+  position: relative;
+}
+.form_close-button {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  margin-left: auto;
+  background-image: url("../../images/close-button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: 0;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+.form_close-button:hover {
+  opacity: 0.4;
+}
+
+.form_title {
+  font-size: large;
+  margin-top: 0;
+}
+
+.form__input {
+  width: 440px;
+  border-top: hidden;
+  border-right: hidden;
+  border-left: hidden;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+  background-color: transparent;
+  margin-top: 8px;
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.form__button-submit {
+  margin-top: 24px;
+  width: 124px;
+  height: 36px;
+  background-color: #000000;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
+
+.form__button-submit:hover {
+  opacity: 0.5;
+}

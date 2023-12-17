@@ -1,7 +1,7 @@
 export const apiKey = `e1e0e54354cd562d3677c265acd0130b`;
 export const longitude = -75.259072;
 export const latitude = 39.918446;
-
+export const baseUrl = "http://localhost:3001";
 export const defaultClothingItems = [
   {
     _id: 0,

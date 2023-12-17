@@ -3,9 +3,23 @@ import avatar from "../../images/Avatar img.svg";
 import "../Header/Header.css";
 import { formatDate } from "../../utils/utils";
 import ToggleSwitch from "./ToggleSwitch/ToggleSwitch";
-import { Link, NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  Link,
+  NavLink,
+  useHistory,
+  useLocation,
+} from "react-router-dom/cjs/react-router-dom.min";
+import { useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function Header({ onCreateModal, city }) {
+function Header({ onCreateModal, city, onSignOut, onLogin, onRegister }) {
+  const location = useLocation;
+  const user = useContext(CurrentUserContext);
+  const history = useHistory();
+  const isProfileLocation = location.pathname === "/profile";
+  const isMainLocation = location.pathname === "/";
+  console.log(user);
+
   return (
     <header className="header">
       <div className="logo-wrapper">
@@ -16,19 +30,42 @@ function Header({ onCreateModal, city }) {
       </div>
       <div className="avatar-wrapper">
         <ToggleSwitch />
-        <button className="header__button" type="text" onClick={onCreateModal}>
-          + Add Clothes
-        </button>
-        <div>
-          <NavLink to="/profile">
-            <p className="header__user-title user-title">Terrence Tegegne</p>
-          </NavLink>
-        </div>
-        <div>
-          <Link to="/profile">
-            <img className="profile__avatar" src={avatar} alt="Avatar"></img>
-          </Link>
-        </div>
+        {user ? (
+          <>
+            <button
+              className="header__button"
+              type="text"
+              onClick={onCreateModal}
+            >
+              + Add Clothes
+            </button>
+            <div>
+              <NavLink to="/profile">
+                <p className="header__user-title user-title">
+                  Terrence Tegegne
+                </p>
+              </NavLink>
+            </div>
+            <div>
+              <Link to="/profile">
+                <img
+                  className="profile__avatar"
+                  src={avatar}
+                  alt="Avatar"
+                ></img>
+              </Link>
+            </div>
+          </>
+        ) : (
+          <>
+            <span className="header_nav" onClick={onLogin}>
+              Log in
+            </span>
+            <span className="header_nav" onClick={onRegister}>
+              Sign up
+            </span>
+          </>
+        )}
       </div>
     </header>
   );

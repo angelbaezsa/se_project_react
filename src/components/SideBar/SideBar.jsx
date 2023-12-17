@@ -2,7 +2,7 @@ import React from "react";
 import "./SideBar.css";
 import avatar from "../../images/Avatar img.svg";
 
-const SideBar = () => {
+const SideBar = (onSignOut) => {
   return (
     <div className="sidebar profile__sidebar">
       <img className="sidebar__avatar" src={avatar} alt="Avatar"></img>

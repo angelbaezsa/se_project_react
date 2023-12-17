@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import SideBar from "../SideBar/SideBar";
 import ItemCard from "../ItemCard/ItemCard";
 import ClothesSection from "../ClothesSection/CothesSection";
 import "./Profile.css";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-const Profile = ({ onCreateModal, clothingItems, onClickedCard }) => {
+const Profile = ({
+  onCreateModal,
+  clothingItems,
+  onClickedCard,
+  onEditProfile,
+  setUser,
+  onSignOut,
+}) => {
+  const history = useHistory;
+  const user = useContext(CurrentUserContext);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setUser(null);
+      history.push("/");
+    }
+  }, [history]);
   return (
     <div className="profile__main">
       <SideBar />
