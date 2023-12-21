@@ -7,13 +7,25 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 const Profile = ({
-  onCreateModal,
-  clothingItems,
-  onClickedCard,
-  onEditProfile,
-  setUser,
-  onSignOut,
+  // onClickedCard,
+  ...props
+  // onCreateModal,
+  // clothingItems,
+  // onEditProfile,
+  // setUser,
+  // onSignOut,
+  // aaa,
 }) => {
+  const {
+    onClickedCard,
+    onItemLike,
+    onCreateModal,
+    defaultClothingItems,
+    setUser,
+    openEditProfile,
+    signOut,
+  } = props;
+  console.log(props);
   const history = useHistory;
   const user = useContext(CurrentUserContext);
 
@@ -24,9 +36,13 @@ const Profile = ({
       history.push("/");
     }
   }, [history]);
+
+  // console.log(2);
+  // console.log(onEditProfile, aaa);
+
   return (
     <div className="profile__main">
-      <SideBar />
+      <SideBar onSignOut={signOut} openEditProfile={openEditProfile} />
       <div className="card_section-wrapper">
         <div className="title-wrapper">
           <h4 className="main__title">Your items:</h4>
@@ -35,7 +51,7 @@ const Profile = ({
           </button>
         </div>
         <ClothesSection
-          clothingItems={clothingItems}
+          clothingItems={defaultClothingItems}
           onClickedCard={onClickedCard}
         />
       </div>

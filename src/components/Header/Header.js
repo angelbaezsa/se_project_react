@@ -41,16 +41,14 @@ function Header({ onCreateModal, city, onSignOut, onLogin, onRegister }) {
             </button>
             <div>
               <NavLink to="/profile">
-                <p className="header__user-title user-title">
-                  Terrence Tegegne
-                </p>
+                <p className="header__user-title user-title">{user.name}</p>
               </NavLink>
             </div>
             <div>
               <Link to="/profile">
                 <img
                   className="profile__avatar"
-                  src={avatar}
+                  src={user.avatar}
                   alt="Avatar"
                 ></img>
               </Link>

@@ -1,16 +1,45 @@
 .sidebar {
   width: 386px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   column-gap: 16px;
+  margin-left: 40px;
 }
 
 .sidebar__avatar {
   width: 40px;
+  margin-right: 24px;
 }
 
 .sidebar__title {
   margin: 6px 0 0 0;
+}
+.sidebar__avatar-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.sidebar__button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-top: 30px;
+}
+.sidebar__button {
+  color: #000;
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  background-color: transparent;
+  border: hidden;
+  padding: 0;
+  margin-top: 8px;
+  text-align: start;
+}
+
+.sidebar__button:hover {
+  opacity: 0.7;
 }

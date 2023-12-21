@@ -1,7 +1,5 @@
-const BASE_URL =
-  process.env.NODE_ENV === "production"
-    ? "http://localhost:3001"
-    : "dev-secret";
+// const BASE_URL = process.env.NODE_ENV === "http://localhost:3001";
+const BASE_URL = "http://localhost:3001";
 
 const processServerResponse = (res) => {
   if (res.ok) {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const RegisterModal = (onClose, onRegistration) => {
+const RegisterModal = ({ onClose, onRegistration, ...props }) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
@@ -26,11 +26,14 @@ const RegisterModal = (onClose, onRegistration) => {
   //   });
   // }, [email, password, name]);
 
-  console.log(onRegistration);
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    onRegistration(name, avatar, email, password);
+    onRegistration({
+      name: name,
+      avatar: avatar,
+      email: email,
+      password: password,
+    });
   };
 
   return (
@@ -68,7 +71,7 @@ const RegisterModal = (onClose, onRegistration) => {
           Email
           <input
             className={`form__input input_type_email `}
-            type="text"
+            type="email"
             placeholder="Email"
             required
             onChange={(event) => {

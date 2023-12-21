@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { ProtectedRoute } from "../ProtectedRoute/ProtectedRoute";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
@@ -38,8 +39,8 @@ function App() {
   const [user, setUser] = useState(null);
   const [openEditProfileModal, setEditOpenProfileModal] = useState(false);
   const [openLoginModal, setOpenLoginModal] = useState(false);
-  const [openRegisterModal, setOpenRegisterModal] = useState(false);
   const [token, setToken] = useState(null);
+  const history = useHistory();
   // import  from "../context/CurrentTemperatureUnitContext";
 
   //this effect charges the weather api and clothing items on page load
@@ -65,8 +66,7 @@ function App() {
     checkToken(token)
       .then((res) => {
         setUser(res.response);
-        setOpenLoginModal(false);
-        setOpenRegisterModal(false);
+        setActiveModal("");
         setToken(token);
       })
       .catch((error) => {
@@ -161,25 +161,28 @@ function App() {
     auth
       .signIn(email, password)
       .then((res) => {
+        console.log(res);
         if (res && res.token) {
           localStorage.setItem("token", res.token);
-          setOpenLoginModal(false);
+          setActiveModal("");
+          window.location.reload();
         }
       })
       .catch((error) => {
         console.error("Incorrect email or password", error);
       });
   };
-  const handleRegistration = (name, avatar, email, password) => {
+  function handleRegistration({ name, avatar, email, password }) {
     auth
       .signUp(name, avatar, email, password)
       .then((res) => {
-        handleLogin(email, password);
+        console.log(res);
+        handleLogin({ email, password });
       })
       .catch((error) => {
         console.error(error);
       });
-  };
+  }
 
   const handleSignOut = () => {
     signOut();
@@ -210,10 +213,10 @@ function App() {
                 city={currentCity}
                 onSignOut={handleSignOut}
                 onLogin={() => {
-                  setOpenLoginModal(true);
+                  setActiveModal("login");
                 }}
                 onRegister={() => {
-                  setOpenRegisterModal(true);
+                  setActiveModal("register");
                 }}
               />
             </section>
@@ -222,12 +225,15 @@ function App() {
                 path="/profile"
                 auth={!!user}
                 component={Profile}
-                onSelectCard={handleOpenPreviewModal}
+                onClickedCard={handleOpenPreviewModal}
                 onItemLike={handleAddLikeItem}
                 onCreateModal={handleCreateModal}
                 defaultClothingItems={defaultClothes}
                 setUser={setUser}
-                openEditProfile={handleOpenProfileModal}
+                openEditProfile={() => {
+                  setActiveModal("edit");
+                }}
+                onEditProfile={handleEditProfile}
                 signOut={handleSignOut}
               />
               <Route exact path="/">
@@ -239,12 +245,13 @@ function App() {
               </Route>
               <Route path="/profile">
                 <Profile
-                  clothingItems={defaultClothes}
-                  onClickedCard={handleOpenPreviewModal}
-                  onCreateModal={handleCreateModal}
-                  onEditProfile={handleEditProfile}
-                  onSignOut={handleSignOut}
-                  setUser={setUser}
+                // clothingItems={defaultClothes}
+                // onClickedCard={handleOpenPreviewModal}
+                // onCreateModal={handleCreateModal}
+                // // onEditProfile={() => setActiveModal("edit")}
+                // onEditProfile={71}
+                // onSignOut={handleSignOut}
+                // setUser={setUser}
                 />
               </Route>
             </Switch>
@@ -267,33 +274,35 @@ function App() {
                 onDelete={handleDelete}
               />
             )}
-            {openLoginModal === true && (
+            {activeModal === "login" && (
               <LoginModal
                 isOpen={openLoginModal}
-                onClose={() => setOpenLoginModal(false)}
+                onClose={() => {
+                  setActiveModal("");
+                }}
                 onLogin={handleLogin}
                 toRegister={() => {
-                  setOpenRegisterModal(true);
-                  setOpenLoginModal(false);
+                  setActiveModal("register");
                 }}
               />
             )}
-            {openRegisterModal === true && (
+            {activeModal === "register" && (
               <RegisterModal
-                isOpen={openRegisterModal}
-                onClose={setOpenRegisterModal(false)}
+                // isOpen={openRegisterModal}
+                onClose={() => {
+                  setActiveModal("");
+                }}
                 onRegistration={handleRegistration}
-                // toLogin={() => {
-                //   setOpenLoginModal(true);
-                //   setOpenRegisterModal(false);
-                // }}
+                toLogin={() => {
+                  setActiveModal("login");
+                }}
               />
             )}
-            {openEditProfileModal === true && (
+            {activeModal === "edit" && (
               <EditProfileModal
                 isOpen={openEditProfileModal}
                 onClose={() => {
-                  setEditOpenProfileModal(false);
+                  setActiveModal("");
                 }}
                 onUpdateUser={handleEditProfile}
               />
