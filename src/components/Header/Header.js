@@ -56,10 +56,10 @@ function Header({ onCreateModal, city, onSignOut, onLogin, onRegister }) {
           </>
         ) : (
           <>
-            <span className="header_nav" onClick={onLogin}>
+            <span className="header__nav" onClick={onLogin}>
               Log in
             </span>
-            <span className="header_nav" onClick={onRegister}>
+            <span className="header__nav" onClick={onRegister}>
               Sign up
             </span>
           </>

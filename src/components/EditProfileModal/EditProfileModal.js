@@ -11,7 +11,7 @@ const EditProfileModal = ({ onClose, onUpdateUser }) => {
 
   const handleUpdateUser = (e) => {
     e.preventDefault();
-    onUpdateUser();
+    onUpdateUser(name, avatar);
   };
 
   return (

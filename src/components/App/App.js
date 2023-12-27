@@ -24,8 +24,6 @@ import EditProfileModal from "../EditProfileModal/EditProfileModal";
 import { ClothesApi } from "../../utils/ClothesApi";
 import { UsersApi } from "../../utils/UsersApi";
 import ClothesSection from "../ClothesSection/CothesSection";
-const clothesApi = new ClothesApi({ baseUrl });
-const usersApi = new UsersApi({ baseUrl });
 
 function App() {
   //this state handles the add item modal
@@ -43,6 +41,9 @@ function App() {
   const history = useHistory();
   // import  from "../context/CurrentTemperatureUnitContext";
 
+  const clothesApi = new ClothesApi({ baseUrl });
+  const usersApi = new UsersApi({ baseUrl });
+
   //this effect charges the weather api and clothing items on page load
 
   useEffect(() => {
@@ -51,7 +52,6 @@ function App() {
         const forecast = parseWeatherForecast(res); //returns an object of type forecast
         setCurrentTemperature(forecast);
         setCurrentCity(res.name);
-        console.log(res.weather[0].main);
       })
       .catch((error) => console.error(`Error${error}`));
     clothesApi
@@ -99,7 +99,7 @@ function App() {
 
   const handleDelete = (card) => {
     clothesApi
-      .deleteClothes(card._id)
+      .deleteClothes(card._id, token)
       .then((res) => {
         const updatedClothes = defaultClothes.filter((item) => {
           return item._id !== card._id;
@@ -134,6 +134,7 @@ function App() {
     }
   };
   const handleAddLikeItem = (card) => {
+    console.log(card);
     const { _id: id, isLiked } = card;
     const token = localStorage.getItem("token");
     if (isLiked) {
@@ -226,7 +227,7 @@ function App() {
                 auth={!!user}
                 component={Profile}
                 onClickedCard={handleOpenPreviewModal}
-                onItemLike={handleAddLikeItem}
+                onLikeItem={handleAddLikeItem}
                 onCreateModal={handleCreateModal}
                 defaultClothingItems={defaultClothes}
                 setUser={setUser}
@@ -241,6 +242,7 @@ function App() {
                   temperature={currentTemperature}
                   onClickedCard={handleOpenPreviewModal}
                   clothingItems={defaultClothes}
+                  onLikeItem={handleAddLikeItem}
                 />
               </Route>
               <Route path="/profile">

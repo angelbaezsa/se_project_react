@@ -36,3 +36,25 @@
   height: 100%;
   width: 100%;
 }
+
+.card_like-button {
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  top: 5px;
+  left: calc(50% + 35px);
+  margin-left: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+.card_like-button-liked {
+  background-image: url("../../images/State=Liked.svg");
+
+  background-repeat: no-repeat;
+}
+.card_like-button-default {
+  background-image: url("../../images/State=Default.svg");
+
+  background-repeat: no-repeat;
+}

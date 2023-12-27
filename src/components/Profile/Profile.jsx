@@ -18,14 +18,14 @@ const Profile = ({
 }) => {
   const {
     onClickedCard,
-    onItemLike,
+    onLikeItem,
     onCreateModal,
     defaultClothingItems,
     setUser,
     openEditProfile,
     signOut,
   } = props;
-  console.log(props);
+  // console.log(props);
   const history = useHistory;
   const user = useContext(CurrentUserContext);
 
@@ -53,6 +53,7 @@ const Profile = ({
         <ClothesSection
           clothingItems={defaultClothingItems}
           onClickedCard={onClickedCard}
+          onLikeItem={onLikeItem}
         />
       </div>
     </div>
