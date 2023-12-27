@@ -1,12 +1,13 @@
 # Weather API Project - Clothing Suggestion App
+
 # Weather API Project
+
+Link to express project: https://github.com/angelbaezsa/se_project_express
 
 <img width="1492" alt="Screenshot 2023-08-09 at 11 37 57 AM" src="https://github.com/angelbaezsa/se_project_react/assets/47637565/890cc731-4064-4b96-987a-0aeb28eca3d4">
 <img width="1508" alt="image" src="https://github.com/angelbaezsa/se_project_react/assets/47637565/9971f3a2-586e-49c4-8c28-0da9de0612ef">
 <img width="1492" alt="Screenshot 2023-08-09 at 11 37 57 AM" src="https://github.com/angelbaezsa/se_project_react/assets/47637565/9fc672ab-6e4d-402a-a14f-f481581e89ac">
 <img width="1508" alt="image" src="https://github.com/angelbaezsa/se_project_react/assets/47637565/1ac3ca31-f3a6-4372-b966-b2923f6228f0">
-
-
 
 Welcome to the Weather API Project - Clothing Suggestion App! This is a React-based web application that presents a weather card displaying the current temperature and dynamically changing images representing the time of the day. The primary function of this app is to suggest suitable clothing based on the current weather conditions.
 
@@ -17,10 +18,13 @@ Adding New Clothes
 Technologies Used
 Contributing
 License
+
 # Introduction
+
 The Weather API Project - Clothing Suggestion App is a simple and user-friendly application that fetches weather data from an external API and provides appropriate clothing recommendations for the current weather. It utilizes React, including React Hooks, to build a responsive and interactive user interface.
 
 # Features
+
 Display the current temperature and weather information.
 Show dynamic images representing the time of the day (e.g., sunny, cloudy, rainy).
 Suggest appropriate clothing based on the current weather conditions.
@@ -51,7 +55,6 @@ External Weather API: Fetches weather data from an external API to display weath
 CSS: For styling the user interface.
 Contributing
 Contributions to the Weather API Project - Clothing Suggestion App are always welcome! If you find any issues or want to add new features, feel free to open an issue or submit a pull request.
-
 
 # Getting Started with Create React App
 
