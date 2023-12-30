@@ -309,6 +309,7 @@ function App() {
                   setActiveModal("");
                 }}
                 onUpdateUser={handleEditProfile}
+                user={user}
               />
             )}
           </CurrentUserContext.Provider>

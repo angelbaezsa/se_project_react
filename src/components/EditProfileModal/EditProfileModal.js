@@ -3,9 +3,11 @@ import "./EditProfileModal.css";
 import { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const EditProfileModal = ({ onClose, onUpdateUser }) => {
+const EditProfileModal = ({ onClose, onUpdateUser, user }) => {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
+
+  console.log(user);
 
   const isUrlValid = (avatar) => {
     return /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i.test(avatar);
@@ -31,6 +33,7 @@ const EditProfileModal = ({ onClose, onUpdateUser }) => {
             }`}
             type="text"
             placeholder="Name"
+            value={`${user.name}`}
             required
             onChange={(event) => {
               setName(event.target.value);
@@ -44,6 +47,7 @@ const EditProfileModal = ({ onClose, onUpdateUser }) => {
               isUrlValid(avatar) ? "" : "form_input_invalid"
             }`}
             type="text"
+            value={`${user.avatar}`}
             placeholder="URL"
             required
             onChange={(event) => {
