@@ -60,7 +60,7 @@ function App() {
         setDefaultClothes(res.response);
       })
       .catch((error) => console.error(`Error${error}`));
-  }, [token]);
+  }, [token, defaultClothes]);
 
   const handleToken = (token) => {
     checkToken(token)
@@ -86,10 +86,12 @@ function App() {
     clothesApi
       .addNewClothes(newGarment)
       .then((response) => {
+        console.log(response);
         setDefaultClothes((previeusDefaultClothes) => [
-          newGarment,
+          response,
           ...previeusDefaultClothes,
         ]);
+        // window.location.reload();
         handleCloseModal();
         setItemName("");
         setItemUrl("");

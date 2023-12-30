@@ -18,7 +18,7 @@ function Header({ onCreateModal, city, onSignOut, onLogin, onRegister }) {
   const history = useHistory();
   const isProfileLocation = location.pathname === "/profile";
   const isMainLocation = location.pathname === "/";
-  console.log(user);
+  // console.log(user);
 
   return (
     <header className="header">

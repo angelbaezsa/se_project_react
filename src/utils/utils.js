@@ -21,14 +21,14 @@ export const checkIsDay = () => {
   const formattedMinutes = currentMinutes.toString().padStart(2, "0");
 
   // Display the current time
-  console.log(`Current time: ${formattedHour}:${formattedMinutes}`);
+  // console.log(`Current time: ${formattedHour}:${formattedMinutes}`);
 
   if (formattedHour >= 18 || formattedHour <= 6) {
-    console.log("night");
+    // console.log("night");
     //if formatter time is more than 18:00 or less than 6:00 day:false
     return false;
   } else if (formattedHour > 6 && formattedHour < 18) {
-    console.log("day");
+    // console.log("day");
     //if is more than 6:00 and less than 18:00 day:true
     return true;
   }
