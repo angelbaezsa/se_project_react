@@ -33,7 +33,7 @@ const EditProfileModal = ({ onClose, onUpdateUser, user }) => {
             }`}
             type="text"
             placeholder="Name"
-            value={`${user.name}`}
+            defaultValue={user.name}
             required
             onChange={(event) => {
               setName(event.target.value);
@@ -47,7 +47,7 @@ const EditProfileModal = ({ onClose, onUpdateUser, user }) => {
               isUrlValid(avatar) ? "" : "form_input_invalid"
             }`}
             type="text"
-            value={`${user.avatar}`}
+            defaultValue={user.avatar}
             placeholder="URL"
             required
             onChange={(event) => {
