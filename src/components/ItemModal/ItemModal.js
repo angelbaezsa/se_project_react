@@ -7,8 +7,19 @@ const ItemModal = ({ name, onCloseModal, item, onDelete }) => {
   const user = useContext(CurrentUserContext);
   // console.log("-----------------", item);
   // console.log("=================", user);
+  console.log(user);
 
-  const isCardOwner = () => item.owner === user._id;
+  const isCardOwner = () => {
+    if (user === null) {
+      return false;
+    } else if (user !== null) {
+      if (item.owner === user._id) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
   //! pls fix delete button from not owner
 
   return (

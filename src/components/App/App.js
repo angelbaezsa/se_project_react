@@ -281,9 +281,7 @@ function App() {
             {activeModal === "login" && (
               <LoginModal
                 isOpen={openLoginModal}
-                onClose={() => {
-                  setActiveModal("");
-                }}
+                onClose={handleCloseModal}
                 onLogin={handleLogin}
                 toRegister={() => {
                   setActiveModal("register");

@@ -4,15 +4,11 @@ import { useContext } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 const ClothesSection = ({ clothingItems, onClickedCard, ...rest }) => {
   const { onLikeItem } = rest;
-  console.log("===========================");
-  console.log(onLikeItem);
-  const user = useContext(CurrentUserContext);
-  const userClothingItems = clothingItems?.filter(
-    (item) => item.owner === user._id
-  );
 
-  console.log(123131231323);
-  console.log(userClothingItems);
+  const user = useContext(CurrentUserContext);
+  const userClothingItems = clothingItems
+    ?.filter((item) => item.owner === user._id)
+    .toReversed();
 
   return (
     <div className="card_section profile__card_section">

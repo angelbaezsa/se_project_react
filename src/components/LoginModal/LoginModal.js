@@ -28,7 +28,11 @@ const LoginModal = ({ isOpen, onClose, onLogin, onRegister }) => {
   };
 
   return (
-    <ModalWithForm onClose={onClose} submitEvent={handleSubmit} name={"Log in"}>
+    <ModalWithForm
+      onCloseModal={onClose}
+      submitEvent={handleSubmit}
+      name={"Log in"}
+    >
       <div>
         <label className="form__input-label">
           Email

@@ -33,9 +33,11 @@ function Main({ temperature, onClickedCard, clothingItems, onLikeItem }) {
 
   const kindOfWeather = getWeatherType();
 
-  const filteredCards = defaultClothes.filter((item) => {
-    return item.weather === kindOfWeather;
-  });
+  const filteredCards = defaultClothes
+    .filter((item) => {
+      return item.weather === kindOfWeather;
+    })
+    .toReversed();
 
   return (
     <main className="main">
