@@ -4,10 +4,8 @@ import { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const EditProfileModal = ({ onClose, onUpdateUser, user }) => {
-  const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
-
-  console.log(user);
+  const [name, setName] = useState(user.name);
+  const [avatar, setAvatar] = useState(user.avatar);
 
   const isUrlValid = (avatar) => {
     return /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i.test(avatar);

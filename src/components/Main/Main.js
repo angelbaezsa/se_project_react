@@ -11,8 +11,8 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function Main({ temperature, onClickedCard, clothingItems, onLikeItem }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  const { defaultClothes } = useContext(ClothingItemsContext);
-  const user = useContext(CurrentUserContext);
+  const defaultClothes = useContext(ClothingItemsContext);
+  // const user = useContext(CurrentUserContext);
   // console.log(currentTemperatureUnit);
   const temp = Math.ceil(temperature?.temperature?.[currentTemperatureUnit]);
 
@@ -33,11 +33,14 @@ function Main({ temperature, onClickedCard, clothingItems, onLikeItem }) {
 
   const kindOfWeather = getWeatherType();
 
-  const filteredCards = defaultClothes
-    .filter((item) => {
-      return item.weather === kindOfWeather;
-    })
-    .toReversed();
+  // console.log("Clothing items not filtered: ", clothingItems);
+
+  const filteredCards = clothingItems.filter((item) => {
+    return item.weather === kindOfWeather;
+  });
+  // .toReversed();
+
+  // console.log("filtered cards: ", filteredCards);
 
   return (
     <main className="main">

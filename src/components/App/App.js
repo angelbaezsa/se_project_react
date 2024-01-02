@@ -54,13 +54,22 @@ function App() {
         setCurrentCity(res.name);
       })
       .catch((error) => console.error(`Error${error}`));
+    // clothesApi
+    //   .getClothes()
+    //   .then((res) => {
+    //     setDefaultClothes(res.response);
+    //   })
+    //   .catch((error) => console.error(`Error${error}`));
+  }, [token]);
+  console.log(`defaultClothes`, defaultClothes);
+  useEffect(() => {
     clothesApi
       .getClothes()
       .then((res) => {
         setDefaultClothes(res.response);
       })
       .catch((error) => console.error(`Error${error}`));
-  }, [token, defaultClothes]);
+  }, []);
 
   const handleToken = (token) => {
     checkToken(token)
@@ -86,9 +95,9 @@ function App() {
     clothesApi
       .addNewClothes(newGarment)
       .then((response) => {
-        console.log(response);
+        console.log("response", response.data);
         setDefaultClothes((previeusDefaultClothes) => [
-          response,
+          response.data,
           ...previeusDefaultClothes,
         ]);
         // window.location.reload();
@@ -167,8 +176,9 @@ function App() {
         console.log(res);
         if (res && res.token) {
           localStorage.setItem("token", res.token);
+          handleToken(res.token);
           setActiveModal("");
-          window.location.reload();
+          // window.location.reload();
         }
       })
       .catch((error) => {
