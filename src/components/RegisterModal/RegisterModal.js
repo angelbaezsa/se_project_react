@@ -3,7 +3,7 @@ import "./RegisterModal.css";
 import { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const RegisterModal = ({ onClose, onRegistration, ...props }) => {
+const RegisterModal = ({ onClose, onRegistration, toLogin, ...props }) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
@@ -93,6 +93,9 @@ const RegisterModal = ({ onClose, onRegistration, ...props }) => {
             }}
           />
         </label>
+        <p className="login-button" onClick={toLogin}>
+          or signIn
+        </p>
       </div>
     </ModalWithForm>
   );

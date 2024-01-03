@@ -70,7 +70,9 @@ const AddItemModal = ({
               checked={weatherType === "hot"}
               onChange={() => setWeatherType("hot")}
             />
-            <label className="radio-button_label">Hot</label>
+            <label htmlFor="hot" className="radio-button_label">
+              Hot
+            </label>
           </div>
           <div>
             <input
@@ -82,7 +84,9 @@ const AddItemModal = ({
               checked={weatherType === "warm"}
               onChange={() => setWeatherType("warm")}
             />
-            <label className="radio-button_label">Warm</label>
+            <label htmlFor="warm" className="radio-button_label">
+              Warm
+            </label>
           </div>
           <div>
             <input
@@ -94,7 +98,9 @@ const AddItemModal = ({
               checked={weatherType === "cold"}
               onChange={() => setWeatherType("cold")}
             />
-            <label className="radio-button_label">Cold</label>
+            <label htmlFor="cold" className="radio-button_label">
+              Cold
+            </label>
           </div>
         </div>
       </div>

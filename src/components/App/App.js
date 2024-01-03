@@ -21,8 +21,8 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 // import { addNewClothes } from "../../utils/ClothesApi";
 // import { deleteClothing } from "../../utils/ClothesApi";
-import { ClothesApi } from "../../utils/ClothesApi";
-import { UsersApi } from "../../utils/UsersApi";
+import { clothesApi } from "../../utils/ClothesApi";
+import { usersApi } from "../../utils/UsersApi";
 import ClothesSection from "../ClothesSection/CothesSection";
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   //this state handles the selected cards
   const [selectedCard, setSelectedCard] = useState({}); // selects a card item to display in modal
-  const [currentTemperature, setCurrentTemperature] = useState(); //holds temperature from API res
+  const [currentTemperature, setCurrentTemperature] = useState(null); //holds temperature from API res
   const [currentCity, setCurrentCity] = useState(""); //holds city from API res
   const [currentTemperatureUnit, setcurrentTemperatureUnit] = useState("f"); //Farenheit || Celsius
   const [defaultClothes, setDefaultClothes] = useState([]); //clothes from Array given in sprint 9
@@ -41,8 +41,8 @@ function App() {
   const history = useHistory();
   // import  from "../context/CurrentTemperatureUnitContext";
 
-  const clothesApi = new ClothesApi({ baseUrl });
-  const usersApi = new UsersApi({ baseUrl });
+  // const clothesApi = new ClothesApi({ baseUrl });
+  // const usersApi = new UsersApi({ baseUrl });
 
   //this effect charges the weather api and clothing items on page load
 
@@ -75,7 +75,8 @@ function App() {
     checkToken(token)
       .then((res) => {
         setUser(res.response);
-        setActiveModal("");
+        // setActiveModal("");
+        handleCloseModal();
         setToken(token);
       })
       .catch((error) => {
@@ -177,7 +178,7 @@ function App() {
         if (res && res.token) {
           localStorage.setItem("token", res.token);
           handleToken(res.token);
-          setActiveModal("");
+          handleCloseModal();
           // window.location.reload();
         }
       })
@@ -257,17 +258,6 @@ function App() {
                   onLikeItem={handleAddLikeItem}
                 />
               </Route>
-              <Route path="/profile">
-                <Profile
-                // clothingItems={defaultClothes}
-                // onClickedCard={handleOpenPreviewModal}
-                // onCreateModal={handleCreateModal}
-                // // onEditProfile={() => setActiveModal("edit")}
-                // onEditProfile={71}
-                // onSignOut={handleSignOut}
-                // setUser={setUser}
-                />
-              </Route>
             </Switch>
             <section></section>
             <section className="page__footer">
@@ -317,7 +307,7 @@ function App() {
                   setActiveModal("");
                 }}
                 onUpdateUser={handleEditProfile}
-                user={user}
+                // user={user}
               />
             )}
           </CurrentUserContext.Provider>

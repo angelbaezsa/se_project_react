@@ -1,3 +1,4 @@
+import { baseUrl } from "./constants";
 export class ClothesApi {
   constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
@@ -62,6 +63,8 @@ export class ClothesApi {
     }).then(this.processServerResponse);
   }
 }
+
+export const clothesApi = new ClothesApi({ baseUrl });
 
 // import { checkResponse } from "./weatherAPI";
 //const baseUrl ="https://my-json-server.typicode.com/angelbaezsa/se_project_react";

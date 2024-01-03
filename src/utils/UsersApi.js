@@ -1,3 +1,4 @@
+import { baseUrl } from "./constants";
 export class UsersApi {
   constructor({ baseUrl }) {
     this._baseUrl = baseUrl;
@@ -17,6 +18,10 @@ export class UsersApi {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({ name, avatar }),
+    }).then((res) => {
+      this.checkServerResponse(res);
     });
   }
 }
+
+export const usersApi = new UsersApi({ baseUrl });

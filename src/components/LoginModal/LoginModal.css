@@ -59,7 +59,7 @@
 }
 
 .form__button-submit {
-  margin-top: 24px;
+  margin-top: 4px;
   width: 124px;
   height: 36px;
   background-color: #000000;
@@ -71,4 +71,21 @@
 
 .form__button-submit:hover {
   opacity: 0.5;
+}
+
+.register-button {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Cabinet Grotesk;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 125% */
+  position: relative;
+  left: 138px;
+  top: 35px;
+  cursor: pointer;
+}
+.register-button:hover {
+  opacity: 0.6;
 }

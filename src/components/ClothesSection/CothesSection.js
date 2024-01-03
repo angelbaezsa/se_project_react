@@ -6,9 +6,9 @@ const ClothesSection = ({ clothingItems, onClickedCard, ...rest }) => {
   const { onLikeItem } = rest;
 
   const user = useContext(CurrentUserContext);
-  const userClothingItems = clothingItems
-    ?.filter((item) => item.owner === user._id)
-    .toReversed();
+  const userClothingItems = clothingItems?.filter(
+    (item) => item.owner === user._id
+  );
 
   return (
     <div className="card_section profile__card_section">

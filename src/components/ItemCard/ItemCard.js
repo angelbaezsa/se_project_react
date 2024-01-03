@@ -21,43 +21,27 @@ function ItemCard({ item, onClickedCard, onLikeItem }) {
   };
 
   return (
-    <>
-      {user ? (
-        <div className="card">
-          <div className="card_title-wrapper">
-            <p className="card_title">{item.name}</p>
-            <div
-              className={`card_like-button ${
-                isLiked ? "card_like-button-liked" : "card_like-button-default"
-              }`}
-              onClick={handleLikeItem}
-            ></div>
-          </div>
-          <img
-            className="card_image"
-            src={item.imageUrl}
-            alt={`illustration of ${item.name}`}
-            onClick={() => {
-              onClickedCard(item);
-            }}
-          />
-        </div>
-      ) : (
-        <div className="card">
-          <div className="card_title-wrapper">
-            <p className="card_title">{item.name}</p>
-          </div>
-          <img
-            className="card_image"
-            src={item.imageUrl}
-            alt={`illustration of ${item.name}`}
-            onClick={() => {
-              onClickedCard(item);
-            }}
-          />
-        </div>
-      )}
-    </>
+    <div className="card">
+      <div className="card_title-wrapper">
+        <p className="card_title">{item.name}</p>
+        {user ? (
+          <div
+            className={`card_like-button ${
+              isLiked ? "card_like-button-liked" : "card_like-button-default"
+            }`}
+            onClick={handleLikeItem}
+          ></div>
+        ) : null}
+      </div>
+      <img
+        className="card_image"
+        src={item.imageUrl}
+        alt={`illustration of ${item.name}`}
+        onClick={() => {
+          onClickedCard(item);
+        }}
+      />
+    </div>
   );
 }
 

@@ -1,0 +1,16 @@
+.login-button {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Cabinet Grotesk;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 125% */
+  position: relative;
+  left: 138px;
+  top: 35px;
+  cursor: pointer;
+}
+.login-button:hover {
+  opacity: 0.6;
+}
