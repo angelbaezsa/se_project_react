@@ -39,6 +39,7 @@ function App() {
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [token, setToken] = useState(null);
   const history = useHistory();
+  const profile = Profile;
   // import  from "../context/CurrentTemperatureUnitContext";
 
   // const clothesApi = new ClothesApi({ baseUrl });
