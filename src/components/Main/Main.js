@@ -44,13 +44,12 @@ function Main({ temperature, onClickedCard, clothingItems, onLikeItem }) {
 
   return (
     <main className="main">
-      (
       <WeatherCard
         day={isDay}
         type={isDay ? "cloudy" : "cloud"}
         temperature={temp}
       />
-      ) Today is {`${temp} ${currentTemperatureUnit.toUpperCase()}`} / You may
+      Today is {`${temp} ${currentTemperatureUnit.toUpperCase()}`} / You may
       want to wear:
       <section className="card_section">
         {filteredCards.map((item) => {

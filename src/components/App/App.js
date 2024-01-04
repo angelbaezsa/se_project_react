@@ -39,7 +39,7 @@ function App() {
   const [openLoginModal, setOpenLoginModal] = useState(false);
   const [token, setToken] = useState(null);
   const history = useHistory();
-  const profile = Profile;
+
   // import  from "../context/CurrentTemperatureUnitContext";
 
   // const clothesApi = new ClothesApi({ baseUrl });
@@ -236,21 +236,20 @@ function App() {
               />
             </section>
             <Switch>
-              <ProtectedRoute
-                path="/profile"
-                auth={!!user}
-                component={Profile}
-                onClickedCard={handleOpenPreviewModal}
-                onLikeItem={handleAddLikeItem}
-                onCreateModal={handleCreateModal}
-                defaultClothingItems={defaultClothes}
-                setUser={setUser}
-                openEditProfile={() => {
-                  setActiveModal("edit");
-                }}
-                onEditProfile={handleEditProfile}
-                signOut={handleSignOut}
-              />
+              <ProtectedRoute auth={!!user} path="/profile">
+                <Profile
+                  onClickedCard={handleOpenPreviewModal}
+                  onLikeItem={handleAddLikeItem}
+                  onCreateModal={handleCreateModal}
+                  defaultClothingItems={defaultClothes}
+                  setUser={setUser}
+                  openEditProfile={() => {
+                    setActiveModal("edit");
+                  }}
+                  onEditProfile={handleEditProfile}
+                  signOut={handleSignOut}
+                />
+              </ProtectedRoute>
               <Route exact path="/">
                 <Main
                   temperature={currentTemperature}

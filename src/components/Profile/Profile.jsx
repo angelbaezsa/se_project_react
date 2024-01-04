@@ -6,16 +6,9 @@ import "./Profile.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-const Profile = ({
-  // onClickedCard,
-  ...props
-  // onCreateModal,
-  // clothingItems,
-  // onEditProfile,
-  // setUser,
-  // onSignOut,
-  // aaa,
-}) => {
+const Profile = ({ ...props }) => {
+  console.log(props);
+
   const {
     onClickedCard,
     onLikeItem,
@@ -25,7 +18,6 @@ const Profile = ({
     openEditProfile,
     signOut,
   } = props;
-  // console.log(props);
   const history = useHistory;
   const user = useContext(CurrentUserContext);
 
