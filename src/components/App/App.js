@@ -291,9 +291,7 @@ function App() {
             {activeModal === "register" && (
               <RegisterModal
                 // isOpen={openRegisterModal}
-                onClose={() => {
-                  setActiveModal("");
-                }}
+                onClose={handleCloseModal}
                 onRegistration={handleRegistration}
                 toLogin={() => {
                   setActiveModal("login");
@@ -303,9 +301,7 @@ function App() {
             {activeModal === "edit" && (
               <EditProfileModal
                 isOpen={openEditProfileModal}
-                onClose={() => {
-                  setActiveModal("");
-                }}
+                onClose={handleCloseModal}
                 onUpdateUser={handleEditProfile}
                 // user={user}
               />
