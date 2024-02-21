@@ -1,6 +1,7 @@
 {
   "name": "se_project_react",
   "version": "0.1.0",
+  "homepage": "www.whattowear.blinklab.com",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
