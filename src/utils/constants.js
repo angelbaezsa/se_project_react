@@ -3,7 +3,7 @@ export const longitude = -75.259072;
 export const latitude = 39.918446;
 export const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://www.whattowear.blinklab.com/"
+    ? "	api.whattowear.blinklab.com"
     : "http://localhost:3001";
 
 export const defaultClothingItems = [
