@@ -1,7 +1,7 @@
 // const BASE_URL = process.env.NODE_ENV === "api.whattowear.blinklab.com";
 const BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "	api.whattowear.blinklab.com"
+    ? "https://api.whattowear.blinklab.com"
     : "http://localhost:3001";
 
 const processServerResponse = (res) => {
