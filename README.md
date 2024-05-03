@@ -2,7 +2,7 @@
 
 # Weather API Project
 
-Link to express project: https://github.com/angelbaezsa/se_project_express
+Link to express project(Backend): https://github.com/angelbaezsa/se_project_express
 
 <img width="1492" alt="Screenshot 2023-08-09 at 11 37 57 AM" src="https://github.com/angelbaezsa/se_project_react/assets/47637565/890cc731-4064-4b96-987a-0aeb28eca3d4">
 <img width="1508" alt="image" src="https://github.com/angelbaezsa/se_project_react/assets/47637565/9971f3a2-586e-49c4-8c28-0da9de0612ef">
